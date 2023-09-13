@@ -1,0 +1,641 @@
+:root {
+    --dark-green: rgb(23, 124, 40);
+    --light-green: rgb(61, 221, 61);
+    --mint: rgb(124, 243, 124);
+    --dark-red: rgb(66, 26, 26);
+    --light-red: rgb(163, 0, 0);
+    --light-blue: rgb(10, 173, 255);
+    --dark-blue: rgb(7, 70, 102);
+    --dark-gray: rgb(31, 29, 29);
+    --gold: rgb(212, 175, 55);
+
+    --midnight-blue: #001f3f;
+    --silver: #D3D3D3;
+    --white: #FFFFFF;
+    --yellow: #FFD700;
+    --pastel: #c4c4c4;
+    --lavendar: #E6E6FA;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+/* Intro - Grid Stuff */
+/* 1920 width desktop screens */
+.grid-container {
+    display: grid;
+    grid-template-areas:
+        "top top"
+        "top top"
+        "text text"
+        "socials socials";
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 4fr 4fr 1fr 1.5fr;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.grid-container canvas {
+    position: absolute;
+    transform: translateY(65px);
+    pointer-events: none;
+}
+
+.centeredImage {
+    grid-area: top;
+    display: flex;
+    /* Adjust the size as needed */
+    width: 300px;
+    /* Use the same value for width and height to create a perfect circle */
+    height: 300px;
+    /* Set the border radius to 50% to create a circle */
+    border-radius: 50%;
+    /* Hide any overflowing content */
+    overflow: hidden;
+    margin: auto;
+    /* transform: translateY(50%); */
+    box-shadow: 0px 0px 40px 10px white;
+    outline-style: solid;
+    outline-color: white;
+    transition-property: scale;
+    transition: 0.5s;
+}
+
+.centeredImage:hover {
+    scale: 1.08;
+}
+
+.imageButton {
+    margin: 0;
+    scale: 1.85;
+    transform: translate(33px);
+}
+
+.centeredImage>.imageText {
+    opacity: 0;
+    position: absolute;
+    z-index: 2;
+    transform: translate(60px, 125px);
+    font-size: 50px;
+    color: rgb(0, 247, 255);
+    transition-property: opacity;
+    transition: 0.5s;
+    font-family: 'Chakra Petch', sans-serif;
+}
+
+.centeredImage:hover .imageText {
+    opacity: 1;
+}
+
+#MeAndNico {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition-property: filter;
+    transition: 0.5s;
+}
+
+.centeredImage:hover #MeAndNico {
+    filter: blur(2px);
+}
+
+.grid-container h1 {
+    grid-area: top;
+    font-family: 'VT323', monospace;
+    color: white;
+    margin-top: 430px;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 70px;
+    letter-spacing: 1px;
+}
+
+.grid-container section {
+    font-size: 18px;
+    font-family: 'Chakra Petch', sans-serif;
+    font-weight: 600;
+    grid-area: top;
+    color: white;
+    margin-top: 520px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.grid-container p {
+    grid-area: text;
+    color: rgb(109, 186, 250);
+    text-align: center;
+    margin: auto;
+    font-size: 20px;
+    font-family: 'Chakra Petch', sans-serif;
+    font-weight: 600;
+    width: 60%;
+}
+
+.delveButton {
+    grid-area: delve;
+    padding: 10px 20px;
+    border: none;
+    font-size: 17px;
+    color: #fff;
+    border-radius: 7px;
+    letter-spacing: 4px;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: 0.5s;
+    transition-property: box-shadow;
+    background: rgb(0, 140, 255);
+    box-shadow: 0 0 25px rgb(0, 140, 255);
+}
+
+.delveButton:hover {
+    box-shadow: 0 0 5px rgb(0, 140, 255),
+        0 0 25px rgb(0, 140, 255),
+        0 0 50px rgb(0, 140, 255),
+        0 0 100px rgb(0, 140, 255);
+}
+
+.socials {
+    grid-area: socials;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    width: 20%;
+    font-size: 24px;
+}
+
+#resumeDL {
+    color: rgb(47, 255, 75);
+    transition: 0.5s;
+    transition-property: scale;
+}
+
+#resumeDL:hover {
+    scale: 1.5;
+}
+
+#youtube {
+    color: rgb(255, 0, 0);
+    transition: 0.5s;
+    transition-property: scale;
+}
+
+#youtube:hover {
+    scale: 1.5;
+}
+
+#linkedIn {
+    color: rgb(10, 102, 194);
+    transition: 0.5s;
+    transition-property: scale;
+}
+
+#linkedIn:hover {
+    scale: 1.5;
+}
+
+#email {
+    color: rgb(255, 130, 14);
+    transition: 0.5s;
+    transition-property: scale;
+}
+
+#email:hover {
+    scale: 1.5;
+}
+
+
+@keyframes move-clouds-back {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 10000px 0;
+    }
+}
+
+@keyframes move-twinkle-back {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: -10000px 5000px;
+    }
+}
+
+.stars,
+.twinkling,
+.clouds {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 370%;
+}
+
+.stars {
+    background: #000 url(../images/stars.png) repeat top center;
+    z-index: -3;
+}
+
+.twinkling {
+    background: transparent url(../images/twinkling.png) repeat top center;
+    z-index: -2;
+    animation: move-twinkle-back 200s linear infinite;
+}
+
+.clouds {
+    background: transparent url(../images/clouds.png) repeat top center;
+    z-index: -1;
+    opacity: .4;
+    animation: move-clouds-back 200s linear infinite;
+}
+
+@media only screen and (max-width:1900px) and (min-width:1400px) {
+    .grid-container {
+        display: grid;
+        grid-template-areas:
+            "top top "
+            "top top "
+            "text text "
+            "socials socials ";
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 3fr 3fr 1fr 1fr;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .grid-container canvas {
+        transform: translateY(40px);
+    }
+}
+
+@media only screen and (max-width:1399px) and (min-width:1150px) {
+    .grid-container {
+        display: grid;
+        grid-template-areas:
+            "top top "
+            "top top "
+            "text text "
+            "socials socials ";
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 2fr 2.5fr 1fr 1fr;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .centeredImage {
+        pointer-events: none;
+    }
+
+    .socials {
+        width: 25%
+    }
+}
+
+@media only screen and (max-width:1149px) and (min-width: 601px) {
+
+    .grid-container {
+        display: grid;
+        grid-template-areas:
+            "top"
+            "top"
+            "text"
+            "socials";
+        grid-template-columns: 1fr;
+        grid-template-rows: .5fr 1fr .5fr .5fr;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .socials {
+        width: 35%
+    }
+
+    .stars,
+    .twinkling,
+    .clouds {
+        width: 107%;
+        height: 640%;
+    }
+}
+
+@media only screen and (max-width:600px) {
+    .grid-container {
+        display: grid;
+        grid-template-areas:
+            "top"
+            "text"
+            "socials";
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .centeredImage {
+        transform: translateY(-100px);
+    }
+
+    h1 {
+        transform: translateY(-40px);
+    }
+
+    .grid-container section {
+        text-align: center;
+        padding-top: 55px;
+        padding-bottom: 20px;
+        width: 70%;
+    }
+
+    .delveButton {
+        margin: 30px;
+    }
+
+    .socials {
+        padding-top: 20px;
+        padding-bottom: 30px;
+        width: 50%;
+    }
+}
+
+
+
+
+
+
+/* Projects - Flexbox stuff */
+
+.flex-container h1 {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 50px;
+    color: white;
+    text-decoration: underline;
+    font-family: 'VT323', monospace;
+    letter-spacing: 1px;
+}
+
+.flex-container h3 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 10px;
+    text-decoration: underline;
+    font-family: 'VT323', monospace;
+    letter-spacing: 1px;
+    font-size: 32px;
+}
+
+.flex-container p {
+    line-height: 25px;
+    font-family: 'Chakra Petch', sans-serif;
+}
+
+ul li {
+    margin-bottom: 26px;
+}
+
+a {
+    transition-property: color;
+    transition: 0.3s;
+}
+
+a:link {
+    color: rgb(255, 84, 255);
+}
+
+a:hover {
+    color: var(--mint);
+}
+
+a:visited {
+    color: var(--dark-green);
+}
+
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.projects {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    /* padding: 20px; */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: auto;
+}
+
+.flex-object {
+    transition-property: scale;
+    transition: 0.75s;
+}
+
+.flex-object:hover {
+    transform: scale(1.01);
+}
+
+.flex-object {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin: 20px 10px;
+    background-color: var(--dark-gray);
+    max-width: min-content;
+    border: 3px solid;
+    box-shadow: 0 0 25px 1px var(--light-blue);
+    border-style: none;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.game-info .image-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(to bottom, var(--dark-gray) 9%, #00000000 50%, var(--dark-gray) 96%);
+}
+
+.game-info {
+    display: inline-block;
+    position: relative;
+}
+
+.image-container {
+    position: relative;
+    margin: 10px;
+}
+
+.textWrapper {
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 10px;
+    gap: 10px;
+    font-size: 17px;
+}
+
+.backgroundText {
+    width: 45%;
+    border-radius: 10px;
+}
+
+.vertical-line {
+    width: 1px;
+    height: 200px;
+    background-color: white;
+    margin: 20px;
+    text-align: center;
+}
+
+.role {
+    text-align: left;
+    margin-left: 20px;
+    margin-right: 10px;
+    border-radius: 10px;
+}
+
+.role ul {
+    margin: 0;
+    padding: 0;
+    list-style: square;
+}
+
+#StoryGame .role {
+    width: 45%;
+}
+
+.flex-object h3 {
+    color: beige;
+}
+
+.flex-object p,
+.flex-object ul li {
+    color: lightskyblue;
+}
+
+#EIYEGame .role,
+#DeerSim .role {
+    width: 40%;
+}
+
+#DeerSim .game-info .image-container::before {
+    background: linear-gradient(to bottom, var(--dark-gray) 5%, #00000000 50%, var(--dark-gray) 96%);
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: rgb(11, 11, 14);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--dark-gray);
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+@media only screen and (max-width: 1900px) {
+
+    .stars,
+    .twinkling,
+    .clouds {
+        height: 400%;
+    }
+}
+
+@media only screen and (max-width: 1800px) {
+
+    .stars,
+    .twinkling,
+    .clouds {
+        height: 600%;
+    }
+}
+
+@media only screen and (max-width: 1700px) {
+
+    .stars,
+    .twinkling,
+    .clouds {
+        height: 620%;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .flex-object {
+        flex-direction: column;
+        align-items: center;
+        /* Allow elements to fill the entire width */
+        max-width: 100%;
+        /* Allow elements to become narrower */
+        min-width: 0;
+    }
+
+    div.image-container {
+        width: auto;
+    }
+
+    div.image-container img {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 999px) and (min-width: 768px) {
+
+    .stars,
+    .twinkling,
+    .clouds {
+        height: 620%;
+    }
+}
+
+@media only screen and (max-width: 767px) and (min-width: 361px) {
+
+    .stars,
+    .twinkling,
+    .clouds {
+        height: 620%;
+    }
+}
+
+@media only screen and (max-width: 360px) {
+
+    .stars,
+    .twinkling,
+    .clouds {
+        width: 107%;
+        height: 700%;
+    }
+}
