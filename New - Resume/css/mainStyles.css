@@ -1,3 +1,9 @@
+/* 
+
+------------ SETUP ------------
+
+*/
+
 :root {
     --dark-green: rgb(23, 124, 40);
     --light-green: rgb(61, 221, 61);
@@ -24,18 +30,21 @@
 }
 
 
+/* 
 
-/* Intro - Grid Stuff */
-/* 1920 width desktop screens */
+------------ GRID CONTAINER / INTRO ------------
+
+*/
+
 .grid-container {
     display: grid;
     grid-template-areas:
-        "top top"
-        "top top"
-        "text text"
+        "icon icon"
+        "title title"
+        "para para"
         "socials socials";
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 4fr 4fr 1fr 1.5fr;
+    grid-template-rows: 3fr 1.5fr 1.5fr 1fr;
     align-items: center;
     justify-content: center;
     text-align: center;
@@ -43,14 +52,13 @@
 
 .grid-container canvas {
     position: absolute;
-    transform: translateY(65px);
+    transform: translateY(100px);
     pointer-events: none;
 }
 
 .centeredImage {
-    grid-area: top;
+    grid-area: icon;
     display: flex;
-    /* Adjust the size as needed */
     width: 300px;
     /* Use the same value for width and height to create a perfect circle */
     height: 300px;
@@ -59,7 +67,6 @@
     /* Hide any overflowing content */
     overflow: hidden;
     margin: auto;
-    /* transform: translateY(50%); */
     box-shadow: 0px 0px 40px 10px white;
     outline-style: solid;
     outline-color: white;
@@ -106,59 +113,33 @@
 }
 
 .grid-container h1 {
-    grid-area: top;
+    grid-area: title;
     font-family: 'VT323', monospace;
     color: white;
-    margin-top: 430px;
-    margin-right: auto;
-    margin-left: auto;
     font-size: 70px;
     letter-spacing: 1px;
 }
 
 .grid-container section {
+    grid-area: title;
     font-size: 18px;
     font-family: 'Chakra Petch', sans-serif;
     font-weight: 600;
-    grid-area: top;
     color: white;
-    margin-top: 520px;
-    margin-right: auto;
-    margin-left: auto;
+    padding-top: 100px;
 }
 
 .grid-container p {
-    grid-area: text;
+    grid-area: para;
     color: rgb(109, 186, 250);
     text-align: center;
     margin: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
     font-size: 20px;
     font-family: 'Chakra Petch', sans-serif;
     font-weight: 600;
     width: 60%;
-}
-
-.delveButton {
-    grid-area: delve;
-    padding: 10px 20px;
-    border: none;
-    font-size: 17px;
-    color: #fff;
-    border-radius: 7px;
-    letter-spacing: 4px;
-    font-weight: 700;
-    text-transform: uppercase;
-    transition: 0.5s;
-    transition-property: box-shadow;
-    background: rgb(0, 140, 255);
-    box-shadow: 0 0 25px rgb(0, 140, 255);
-}
-
-.delveButton:hover {
-    box-shadow: 0 0 5px rgb(0, 140, 255),
-        0 0 25px rgb(0, 140, 255),
-        0 0 50px rgb(0, 140, 255),
-        0 0 100px rgb(0, 140, 255);
 }
 
 .socials {
@@ -212,6 +193,12 @@
 }
 
 
+/* 
+
+------------ STARRY BACKGROUND ------------
+
+*/
+
 @keyframes move-clouds-back {
     from {
         background-position: 0 0;
@@ -241,8 +228,10 @@
     left: 0;
     right: 0;
     bottom: 0;
+
+    position: fixed;
     width: 100%;
-    height: 370%;
+    height: 100%;
 }
 
 .stars {
@@ -263,133 +252,62 @@
     animation: move-clouds-back 200s linear infinite;
 }
 
-@media only screen and (max-width:1900px) and (min-width:1400px) {
-    .grid-container {
-        display: grid;
-        grid-template-areas:
-            "top top "
-            "top top "
-            "text text "
-            "socials socials ";
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 3fr 3fr 1fr 1fr;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-    }
 
-    .grid-container canvas {
-        transform: translateY(40px);
-    }
+/* 
+
+------------ FLEX CONTAINER / GAME SHOWCASE ------------
+
+*/
+
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
 }
 
-@media only screen and (max-width:1399px) and (min-width:1150px) {
-    .grid-container {
-        display: grid;
-        grid-template-areas:
-            "top top "
-            "top top "
-            "text text "
-            "socials socials ";
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 2fr 2.5fr 1fr 1fr;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-    }
-
-    .centeredImage {
-        pointer-events: none;
-    }
-
-    .socials {
-        width: 25%
-    }
-}
-
-@media only screen and (max-width:1149px) and (min-width: 601px) {
-
-    .grid-container {
-        display: grid;
-        grid-template-areas:
-            "top"
-            "top"
-            "text"
-            "socials";
-        grid-template-columns: 1fr;
-        grid-template-rows: .5fr 1fr .5fr .5fr;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-    }
-
-    .socials {
-        width: 35%
-    }
-
-    .stars,
-    .twinkling,
-    .clouds {
-        width: 107%;
-        height: 640%;
-    }
-}
-
-@media only screen and (max-width:600px) {
-    .grid-container {
-        display: grid;
-        grid-template-areas:
-            "top"
-            "text"
-            "socials";
-        grid-template-columns: 1fr;
-        grid-template-rows: auto;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-    }
-
-    .centeredImage {
-        transform: translateY(-100px);
-    }
-
-    h1 {
-        transform: translateY(-40px);
-    }
-
-    .grid-container section {
-        text-align: center;
-        padding-top: 55px;
-        padding-bottom: 20px;
-        width: 70%;
-    }
-
-    .delveButton {
-        margin: 30px;
-    }
-
-    .socials {
-        padding-top: 20px;
-        padding-bottom: 30px;
-        width: 50%;
-    }
-}
-
-
-
-
-
-
-/* Projects - Flexbox stuff */
-
-.flex-container h1 {
+.projects {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    margin-top: 20px;
-    font-size: 50px;
-    color: white;
-    text-decoration: underline;
-    font-family: 'VT323', monospace;
-    letter-spacing: 1px;
+    margin: auto;
+}
+
+.flex-object:hover {
+    transform: scale(1.01);
+}
+
+.flex-object {
+    margin: 20px 10px;
+    width: calc(50% - 40px);
+    background-color: var(--dark-gray);
+    border: 3px solid;
+    box-shadow: 0 0 25px 1px var(--light-blue);
+    border-style: none;
+    border-radius: 20px;
+    padding: 10px;
+    transition: 0.75s;
+}
+
+.image-container {
+    position: relative;
+    margin: 10px;
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+}
+
+.game-info .image-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(to bottom, var(--dark-gray) 9%, #00000000 50%, var(--dark-gray) 96%);
 }
 
 .flex-container h3 {
@@ -428,63 +346,9 @@ a:visited {
     color: var(--dark-green);
 }
 
-.flex-container {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.projects {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    /* padding: 20px; */
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    margin: auto;
-}
-
-.flex-object {
-    transition-property: scale;
-    transition: 0.75s;
-}
-
-.flex-object:hover {
-    transform: scale(1.01);
-}
-
-.flex-object {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    margin: 20px 10px;
-    background-color: var(--dark-gray);
-    max-width: min-content;
-    border: 3px solid;
-    box-shadow: 0 0 25px 1px var(--light-blue);
-    border-style: none;
-    border-radius: 20px;
-    padding: 10px;
-}
-
-.game-info .image-container::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: linear-gradient(to bottom, var(--dark-gray) 9%, #00000000 50%, var(--dark-gray) 96%);
-}
-
 .game-info {
     display: inline-block;
     position: relative;
-}
-
-.image-container {
-    position: relative;
-    margin: 10px;
 }
 
 .textWrapper {
@@ -541,11 +405,14 @@ a:visited {
     width: 40%;
 }
 
-#DeerSim .game-info .image-container::before {
-    background: linear-gradient(to bottom, var(--dark-gray) 5%, #00000000 50%, var(--dark-gray) 96%);
-}
 
-/* width */
+/* 
+
+------------ SCROLL BAR ------------
+
+*/
+
+/* Width */
 ::-webkit-scrollbar {
     width: 5px;
 }
@@ -566,76 +433,155 @@ a:visited {
     background: #555;
 }
 
-@media only screen and (max-width: 1900px) {
 
-    .stars,
-    .twinkling,
-    .clouds {
-        height: 400%;
+/* 
+
+------------ RESPONSIVE DESIGNS ------------
+
+*/
+
+@media only screen and (max-width: 640px) {
+    .grid-container {
+        grid-template-areas:
+            "icon icon"
+            "title title"
+            "para para"
+            "socials socials";
+        grid-template-rows: .5fr .1fr 1fr .5fr;
     }
-}
 
-@media only screen and (max-width: 1800px) {
-
-    .stars,
-    .twinkling,
-    .clouds {
-        height: 600%;
+    .grid-container h1 {
+        font-size: 55px;
     }
-}
 
-@media only screen and (max-width: 1700px) {
-
-    .stars,
-    .twinkling,
-    .clouds {
-        height: 620%;
+    .grid-container section {
+        padding-top: 140px;
+        font-size: 14px;
     }
-}
 
-@media only screen and (max-width: 1000px) {
-    .flex-object {
+    .grid-container p {
+        margin-top: 10px;
+        font-size: 18px;
+    }
+
+    .centeredImage {
+        pointer-events: none;
+    }
+
+    .socials {
+        padding-top: 20px;
+        padding-bottom: 30px;
+        width: 60%;
+    }
+
+    .projects {
         flex-direction: column;
-        align-items: center;
-        /* Allow elements to fill the entire width */
-        max-width: 100%;
-        /* Allow elements to become narrower */
-        min-width: 0;
     }
 
-    div.image-container {
-        width: auto;
-    }
-
-    div.image-container img {
-        width: 100%;
+    .flex-object {
+        width: 85%;
     }
 }
 
-@media only screen and (max-width: 999px) and (min-width: 768px) {
+@media only screen and (min-width: 640px) and (max-width: 768px) {
+    .grid-container {
+        grid-template-areas:
+            "icon icon"
+            "title title"
+            "para para"
+            "socials socials";
+        grid-template-rows: 1fr .5fr .5fr .5fr;
+    }
 
-    .stars,
-    .twinkling,
-    .clouds {
-        height: 620%;
+    .grid-container p {
+        font-size: 18px;
+    }
+
+    .centeredImage {
+        pointer-events: none;
+    }
+
+    .socials {
+        padding-top: 20px;
+        padding-bottom: 30px;
+        width: 50%;
+    }
+
+    .projects {
+        flex-direction: column;
+    }
+
+    .flex-object {
+        width: 90%;
     }
 }
 
-@media only screen and (max-width: 767px) and (min-width: 361px) {
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+    .grid-container {
+        grid-template-areas:
+            "icon icon"
+            "title title"
+            "para para"
+            "socials socials";
+        grid-template-rows: 2fr .5fr 1.5fr.5fr;
+    }
 
-    .stars,
-    .twinkling,
-    .clouds {
-        height: 620%;
+    .grid-container section {
+        padding-top: 120px;
+    }
+
+    .centeredImage {
+        pointer-events: none;
+    }
+
+    .socials {
+        width: 35%
+    }
+
+    .projects {
+        flex-direction: column;
+    }
+
+    .flex-object {
+        width: 90%;
     }
 }
 
-@media only screen and (max-width: 360px) {
+@media only screen and (min-width: 1024px) and (max-width: 1280px) {
+    .grid-container {
+        grid-template-areas:
+            "icon icon"
+            "title title"
+            "para para"
+            "socials socials";
+        grid-template-rows: 2fr 1fr 1.5fr.5fr;
+    }
 
-    .stars,
-    .twinkling,
-    .clouds {
-        width: 107%;
-        height: 700%;
+    .flex-container {
+        flex-direction: row;
+    }
+
+    .flex-object {
+        width: calc(50% - 40px);
+    }
+}
+
+@media only screen and (min-width: 1280px) and (max-width: 1620px) {
+    .grid-container {
+        grid-template-areas:
+            "icon icon"
+            "title title"
+            "para para"
+            "socials socials";
+        grid-template-rows: 2fr 1fr 1.5fr.5fr;
+
+    }
+
+    .flex-container {
+        flex-direction: row;
+    }
+
+    .flex-object {
+        width: calc(50% - 40px);
     }
 }
