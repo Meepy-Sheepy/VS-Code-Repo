@@ -94,6 +94,11 @@
     transition-property: opacity;
     transition: 0.5s;
     font-family: 'Chakra Petch', sans-serif;
+
+    /* To prevent hightling of the text 
+       and to be able to click on the text 
+       and hit the button*/
+    pointer-events: none;
 }
 
 .centeredImage:hover .imageText {
@@ -401,8 +406,16 @@ a:visited {
 }
 
 #EIYEGame .role,
-#DeerSim .role {
+#DeerSim .role,
+#YJ .role,
+#Endless .role,
+#PM .role,
+#Changeling .role {
     width: 40%;
+}
+
+.OMOG {
+    color: yellow;
 }
 
 
