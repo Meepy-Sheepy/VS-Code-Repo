@@ -21,13 +21,17 @@
             <div class="text">
                 <h2>A Star Was Born</h2>
                 <p>
-                    Okay! So now we're finally getting into the nitty gritty of this course. Today, I'm using a button to try and turn on an LED. Should be pretty simple right?
-                    Well, it <i>technically</i> was, but wow, are there a lot of new terms. Transducers? Sensors? Actuators? It's a little hard to picture what it actually means
-                    but I'm sure in time, it will click. There's also Voltage, Current, and Resistance, which make more sense to me but still in the nebulous region for now.
+                    Okay! So now we're finally getting into the nitty gritty of this course. Today, I'm using a button
+                    to try and turn on an LED. Should be pretty simple right?
+                    Well, it <i>technically</i> was, but wow, are there a lot of new terms. Transducers? Sensors?
+                    Actuators? It's a little hard to picture what it actually means
+                    but I'm sure in time, it will click. There's also Voltage, Current, and Resistance, which make more
+                    sense to me but still in the nebulous region for now.
                 </p>
                 <p>
-                  BUT, it is time finally make something happen! I followed the video and read the chapter at the same time so I didn't fully depend on either source. Both
-                  medias combined gave me a more in-depth tutorial on how to make my first circuit.
+                    BUT, it is time finally make something happen! I followed the video and read the chapter at the same
+                    time so I didn't fully depend on either source. Both
+                    medias combined gave me a more in-depth tutorial on how to make my first circuit.
                 </p>
             </div>
             <div class="media">
@@ -35,34 +39,74 @@
             </div>
         </div>
 
-        <!-- BODY SECTION -->
+        <!-- First Circuit SECTION -->
         <div class="blog-post">
             <div class="text">
                 <h2>First Light</h2>
                 <p>
-                    To make my first circuit, all I needed was an LED, resistor, switch, and a couple of jumper cables. All in all, it was pretty simple and figuring out
-                    how Power and Ground work together and the path that is required in order to make the LED light up is starting to make some sense. LED's are
-                    polarized components, which means they only allow electricity to flow through them in one direction. There are 2 legs on the LED, an anode and cathode.
+                    To make my first circuit, all I needed was an LED, resistor, switch, and a couple of jumper cables.
+                    All in all, it was pretty simple and figuring out
+                    how Power and Ground work together and the path that is required in order to make the LED light up
+                    is starting to make some sense. LED's are
+                    polarized components, which means they only allow electricity to flow through them in one direction.
+                    There are 2 legs on the LED, an anode and cathode.
                     Anode, the longer leg connects to Power while Cathode, the shorter leg, connects to Ground.
                 </p>
             </div>
             <div class="media">
-                <img src="../images/IGME 470/HW1/First Circuit Pic.jpg" alt="First circuitry">
-                <img src="" alt="???">
+                <img src="../images/IGME 470/HW1/First Circuit Pic.jpg" alt="First circuit pic">
+                <img src="../videos/IGME 470/HW1/First Circuit.gif" alt="First circuit vid">
             </div>
         </div>
 
-        <!-- BODY SECTION -->
+        <!-- Series Circuit SECTION -->
         <div class="blog-post">
             <div class="text">
-                <h2>*Blink* *Blink*</h2>
+                <h2>Series Circuits</h2>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam ab libero recusandae quo, qui quia.
+                    After I did the first circuit, the book suggested I do Series Circuits. In this scenario, I would be
+                    adding another switch to the equation.
+                    Series mean that the same electrical current flows through both switches, meaning that they have to
+                    both be pressed in order for the LED to light up. I think of this as an AND statement in
+                    programming. A and B need to be TRUE in order for the
+                    LED to light up.
+                </p>
+                <p>
+                    This was a pretty cool exercise as I further understood how connection and flow of electricity
+                    works. One thing that keeps tripping me up is
+                    how connected the wires are to the breadboard. I've had some connectivity issues and I'm hesistant
+                    to put pressure on this seemingly fragile object.
+                    I did SPEND 80 bucks on this thing!
                 </p>
             </div>
             <div class="media">
-                <img src="" alt="???">
-                <img src="" alt="???">
+                <img src="../images/IGME 470/HW1/Series Circuit Pic.jpg" alt="Series circuit pic">
+                <img src="../videos/IGME 470/HW1/Series Circuit.gif" alt="Series circuit vid">
+            </div>
+        </div>
+
+        <!-- Parallel Circuit SECTION -->
+        <div class="blog-post">
+            <div class="text">
+                <h2>Parallel Circuits</h2>
+                <p>
+                    Finally, the last thing Chapter 1 wanted me to try was Parallel Circuits. This one is very similar
+                    to the Series one but instead of having to press
+                    both buttons in order for the LED to light up, you can press either one. This is very similar to an
+                    OR statement, where either A OR B can be true
+                    for the LED to light up.
+                </p>
+                <p>
+                    This is where my understanding of connectivity finally solidified. Using a jumper cable, we connect
+                    the top most button to the LED and for the bottom button
+                    we keep the same jumper cable as it already connected to the LED. We essentially skip over the
+                    second connection with the switch, making the
+                    circuit a Parallel.
+                </p>
+            </div>
+            <div class="media">
+                <img src="../images/IGME 470/HW1/Parallel Circuit Pic.jpg" alt="Parallel circuit pic">
+                <img src="../videos/IGME 470/HW1/Parallel Circuit.gif" alt="Parallel circuit vid">
             </div>
         </div>
 
@@ -71,7 +115,18 @@
             <div class="text">
                 <h2>Conclusion</h2>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam odio tempora error doloribus aspernatur voluptate.
+                    I would say that Chapter 1 went pretty smoothly but there were some problems I encountered. Knowing
+                    which resistor to use was a little confusing.
+                    The book suggested I read page 41 for more information on it and while that did explain some things,
+                    finding which one was the 220 OHM resistor was still
+                    difficult. The only way I found it was the video tutorial and the images on all the resistors on
+                    page 41.
+                    The Breadboard was annoying at times--not knowing how far I should insert the cables and LED led to
+                    insecurity on how I should properly handle cables. I wish the Arduino products considered showing
+                    feedback to the user, like if a cable is connected to
+                    Power/Ground or if the LED is fully inserted. Overall, Arduino, as it stands, is a really good
+                    starter for people that never done anything with wires and
+                    electronics.
                 </p>
                 <a href="../IGME470 Pages/IGME470.html" class="back">← Back to Home</a>
             </div>
