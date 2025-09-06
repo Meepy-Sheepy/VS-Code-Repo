@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog HW3</title>
+    <link rel="stylesheet" href="../css/blogStyles.css">
+
+</head>
+
+<body>
+    <header>
+        <h1>Homework 3: Love-O-Meter</h1>
+        <p class="date">9/5/25</p>
+    </header>
+
+    <div class="container">
+        <!-- INTRO SECTION -->
+        <div class="blog-post">
+            <div class="text">
+                <h2>For The Love Of--!</h2>
+                <p>
+                    Today I'm doing Chapter 3: Love-O-Meter. The general vibe of the project is to use LEDs for
+                    tempature sensing. Up until now, we've been very binary
+                    with our LEDs, either it's on or off. Now we're going to use LEDs to get a range of temperatures
+                    and depending on hot/cold the room is, none, some, or
+                    all the lights will be on.
+                </p>
+                <p>
+                    We're gonna use a new part, the temperature sensor to detect the temperature around me, all the
+                    usual suspects of parts will also be need (i.e jumper cables
+                    resistors, etc, etc.)
+                </p>
+            </div>
+            <div class="media">
+                <img src="../images/IGME 470/HW3/Setup.jpg" alt="Starting HW3 pic">
+            </div>
+        </div>
+
+        <!-- BODY SECTION -->
+        <div class="blog-post">
+            <div class="text">
+                <h2>It's ALIVE</h2>
+                <p>
+                    Getting into the thick of it, it was a little difficult at first to see which part was the
+                    temperature sensor. It's so hard to read the label
+                    when the part is black--but I found it just from comparing the shape of the image to the part. The
+                    first picture on the right doesn't detail all the code
+                    (it was too big) so I just took a photo of the part where the LEDs change their status (on or off).
+                    Essentially, what is happening is that
+                    we compare the current temperature to the baseline temperature (with some wiggle room) and if it's
+                    below that, then all the LEDs are off
+                    using LOW. Then it compares in between temperatures, and every time it crosses a certain threshold,
+                    one more LED turns on until the temperature
+                    exceeds all the prerequisites, which then at that point, all the LEDs are on.
+                </p>
+                <p>
+                    However, when I turned it on, the room temperature exceeded all the comparisons! I learned this
+                    afterwards, but I could've changed the baseline
+                    temperature value to match my room, but what I did instead was to ice my finger for a moment and
+                    touch the sensor to drastically change temperatures. To increase the temperature, I exhaled on
+                    it gently.
+                    I would say it worked very effectively. This is a pretty good way of debugging the temperature
+                    sensor, you get to know immediatly if it responds to the
+                    rapid change in the environment.
+                </p>
+            </div>
+            <div class="media">
+                <img src="../images/IGME 470/HW3/HW3 - LED Temp Code.PNG" alt="Part of HW3 code">
+                <img src="../videos/IGME 470/HW3/Finished.gif" alt="Finshed product of HW3">
+            </div>
+        </div>
+
+        <!-- BODY SECTION -->
+        <div class="blog-post">
+            <div class="text">
+                <h2>There's A Serial Monitor On The Loose</h2>
+                <p>
+                    The final thing I learned from this chapter was the Serial Monitor. It's basically a debug console
+                    that you can print anything out to.
+                    In this, we track a couple of things. The Sensor Value, I'm not entirely sure what it means. It says
+                    it "<i>stores the reading from your sensor</i>."
+                    Sometimes in this book I wish it told me the "what" and "why"
+                    we do these things. The next one is how much power is on the pin (the math is a little strange ngl).
+                    The last one shows what
+                    temperature (in Celsius) is coming off of the sensor (the math is also peculiar here).
+                </p>
+            </div>
+            <div class="media">
+                <img src="../videos/IGME 470/HW3/Serial Monitor.gif"
+                    alt="Video of the Serial Monitor tracking temperature values">
+            </div>
+        </div>
+
+        <!-- CONCLUSION SECTION -->
+        <div class="blog-post">
+            <div class="text">
+                <h2>Conclusion</h2>
+                <p>
+                    Overall opinion? I would say maybe a 8/10 for this one. I really liked the interactivity with the
+                    environment and being able to manipulate the sensor's
+                    values with my own body was very cool. I dock a couple points for the explaination of what we're
+                    printing out. It rushes through it and it feels
+                    like its reviewing it rather than explaining it to a new person.
+                </p>
+                <p>On to HW 4: Color Mixing Lamp</p>
+                <a href="../IGME470 Pages/IGME470.html" class="back">← Back to 470 Home Page</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
