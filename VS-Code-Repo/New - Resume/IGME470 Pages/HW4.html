@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog HW4</title>
+    <link rel="stylesheet" href="../css/blogStyles.css">
+
+</head>
+
+<body>
+    <header>
+        <h1>Homework 4: Color Mixing Lamp</h1>
+        <p class="date">9/10/25</p>
+    </header>
+
+    <div class="container">
+        <!-- INTRO SECTION -->
+        <div class="blog-post">
+            <div class="text">
+                <h2>Rainbows Galor</h2>
+                <p>
+                    Today I'm going to be working on Chapter 4: Color Mixing Lamp. Essentially what I'm doing is
+                    manipulating what color a special LED (Common Cathode RGB LED) is going to emit. I'll be using a new
+                    technique known as Pulse
+                    Width Modulation (PWM) to fade LEDs.
+                    PWM rapidly turns the output pin high and low over a fixed period of time. So using phototransistors
+                    (components that generate a current
+                    proportional to quanitity of light absorbed), I'll be able to change the LED's color based on how
+                    much light is being absorbed by any of the phototransistors.
+                </p>
+                <p>
+                    Before I dive right into the project, I needed to organize the resistors. Most of them were still
+                    held on by tape and once I take one out, I can't really tape it back. So I got some bags from
+                    Wegmans and put each type of resistor in their own
+                    bag with a little paper labeling what type it is. Normally, I would use green tape and label it that
+                    way, but I didn't have it so that was the next
+                    best thing. Finally, it looks so much better in the plastic organizer and it takes a lot less time
+                    figuring out which resistor is which.
+                </p>
+            </div>
+            <div class="media">
+                <img src="../images/IGME 470/HW4/Organize.jpg" alt="Organizing parts">
+            </div>
+        </div>
+
+        <!-- BODY SECTION -->
+        <div class="blog-post">
+            <div class="text">
+                <h2>The Start</h2>
+                <p>
+                    This was the first time the book told me to use phototransistors and to put each leg on either side
+                    of the breadboard. It was a weird
+                    thing to tell me to do, but from my understanding, I think it's mainly used to spread the parts out
+                    evenly so it's more readable and
+                    prevent overlap. It does look more professional and cooler, so I'm going to try and keep doing that.
+                </p>
+            </div>
+            <div class="media">
+                <img src="../images/IGME 470/HW4/Setup.jpg" alt="Starting HW4">
+            </div>
+        </div>
+
+        <!-- BODY SECTION -->
+        <div class="blog-post">
+            <div class="text">
+                <h2>The Horror Of This HW</h2>
+                <p>
+                    Okay...well I did finish the project but not without some nails being pulled out and my hair
+                    withering. It took such willpower to not throw my
+                    80 dollar Arduino set out the window. So here's the tea: Basically, these phototransistors are
+                    inside these yellow bricks. The yellow bricks
+                    have slits which allows the gel to stay on and wrap around the phototransistors. This gel are in
+                    colors; red, green, and blue and when one is wrapped
+                    around a phototransistor, it absorbs the color and translates it to the common cathode RBG LED. The
+                    gel, was the culprit of my anguish--it kept popping out of the
+                    slits and making my day worse. The yellow bricks also were annoying. Since the phototransistors
+                    don't keep the bricks in place, they slowly fall down
+                    and if you're fiddling with a gel, any of the yellow bricks would fall down, causing MORE gels to
+                    pop out. Terribly designed I might say.
+                </p>
+                <p>
+                    When I did get it working though, it was very cool seeing how the phototransistors translated data
+                    to the RGB LED. It's strange to see how
+                    it's just 0's and 1's at the end of the day.
+                </p>
+                <p>
+                    P.S. It's hard to tell in the photo, but the colors do change a lot more what is shown.
+                </p>
+            </div>
+            <div class="media">
+                <img src="../images/IGME 470/HW4/Final Result.jpg" alt="Finished product of HW4">
+                <img src="../videos/IGME 470/HW4/Finished.gif" alt="Video of HW4 showcase">
+            </div>
+        </div>
+
+        <!-- TINKERCAD Section-->
+        <div class="blog-post">
+            <div class="text">
+                <h2>Tinkercad</h2>
+            </div>
+            <div class="media-row">
+                <img src="../images/IGME 470/HW4/HW4 Schematic.PNG" alt="HW4 schematic">
+                <img src="../images/IGME 470/HW4/HW4 CSV.PNG" alt="HW4 CSV">
+            </div>
+        </div>
+
+        <!-- CONCLUSION SECTION -->
+        <div class="blog-post">
+            <div class="text">
+                <h2>Conclusion</h2>
+                <p>
+                    I'm not sure how I would use this in other projects. The setup itself is very finnicky and left to
+                    be desired. Maybe if you wanted a lamp
+                    that changed color throughout the day--that could be a cool side project. Overall, not a great
+                    experience. Hopefully this was the worst of the worst and things can only go up from here!
+                </p>
+                <p>On To HW5: Mood Cue</p>
+                <a href="../IGME470 Pages/IGME470.html" class="back">← Back to 470 Home Page</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -75,6 +75,21 @@ header .date {
     gap: 20px;
 }
 
+.media-row {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;            /* space between images */
+    justify-content: flex-start;
+}
+
+.media-row img {
+    flex: 1 1 45%;        /* each image takes about 45% of row */
+    max-width: 45%;       /* prevents stretching too wide */
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+
 .media img,
 .media video,
 .media iframe {
