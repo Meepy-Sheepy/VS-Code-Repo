@@ -4,75 +4,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog HWX</title>
+    <title>Blog HW5</title>
     <link rel="stylesheet" href="../css/blogStyles.css">
 
 </head>
 
 <body>
     <header>
-        <h1>Homework X: ???</h1>
-        <p class="date">???</p>
+        <h1>Homework 5: Mood Cue</h1>
+        <p class="date">9/12/25</p>
     </header>
 
     <div class="container">
         <!-- INTRO SECTION -->
         <div class="blog-post">
             <div class="text">
-                <h2>Intro</h2>
+                <h2>Going Round--Actually Only 180</h2>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique aspernatur id earum, vero laborum
-                    ipsa!
+                    Today, I'm going to be doing Chapter 5: Mood Cue, and this one <i>really</i> caught my eye as now
+                    I'm using motors! The objective of
+                    this chapter is to use a servo motor which has a motor arm attached and use what's called a
+                    potentiometer to rotate the arm.
+                    The way we achieve this is similar to the PWM from the last chapter. Servo motors expect a number of
+                    pulses that tell them what angle to
+                    move to. We use a built in library to be able to easily control the motor. Since the analog input
+                    goes from 0-1023, we need to translate the values
+                    from the potentiometer to degrees, by using the map() function.
                 </p>
                 <p>
-                    You can include a short story, context, or hook to grab attention.
+                    I was very hyped to do this project and got great results!
                 </p>
             </div>
             <div class="media">
-                <img src="???" alt="???">
+                <img src="../images/IGME 470/HW5/Setup.jpg" alt="Starting HW5">
             </div>
         </div>
 
         <!-- BODY SECTION -->
         <div class="blog-post">
             <div class="text">
-                <h2>Body</h2>
+                <h2>Your Purpose Is To Pass Butter</h2>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique, unde enim eveniet aliquid
-                    veniam quam.
+                    The build went pretty smoothly and I learned about capacitators which "smooth" out any voltage
+                    changes that may occur during the run time.
+                    These capacitators were a little scary because the book just casually says it could blow up if the
+                    anode and cathode were placed
+                    wrong! When I got it working, I was shocked. It's one thing for a light to blink and change colors,
+                    but it's
+                    a whole other feeling when you see something <i>move</i>.
                 </p>
+                <p>
+                    One problem I did run into was using the male header pins and trying to plug them into the end of
+                    the servo motor.
+                    The white clip that has 3 colored wires attached to it plugs into the breadboard requires the male
+                    header pins to
+                    attach to the breadboard and it wouldn't stuck on too well. I had to do some forcing to get it to
+                    stay but other than some temporary finger pain, it was fine.
+                </p>
+                <p>
+                    Speaking of the clip, there are 3 different colored wires, red = power, black = ground, and
+                    white = serial connection. The first 2 are self-explanatory, the white is how we get the motor to
+                    move by the potentiometer.
+                    In the code, we need to access which pin the motor is attached to on the microcontroller (in this
+                    case is pin 9). Once we have that information,
+                    we can take the values from the potentiometer, convert them to 0-179 degrees, and apply the angles
+                    to the motor, and viola! We have a moving motor. The little motor arm reminds me of the little robot
+                    that passes butter in Rick And Morty. It's so tiny!
+                </p>
+
             </div>
             <div class="media">
-                <img src="" alt="???">
-                <img src="" alt="???">
-            </div>
-        </div>
-
-        <!-- BODY SECTION -->
-        <div class="blog-post">
-            <div class="text">
-                <h2>Tinkercad</h2>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam ab libero recusandae quo, qui quia.
-                </p>
-            </div>
-            <div class="media-row">
-                <img src="" alt="???">
-                <img src="" alt="???">
+                <img src="../images/IGME 470/HW5/Final Result.jpg" alt="Finished product of HW4">
+                <img src="../videos/IGME 470/HW5/Finished.gif" alt="HW5 showcase">
             </div>
         </div>
 
         <!-- TINKERCAD SECTION -->
         <div class="blog-post">
             <div class="text">
-                <h2>Body 2</h2>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam ab libero recusandae quo, qui quia.
-                </p>
+                <h2>Tinkercad</h2>
             </div>
-            <div class="media">
-                <img src="" alt="???">
-                <img src="" alt="???">
+            <div class="media-row">
+                <img src="../images/IGME 470/HW5/Schematic View.PNG" alt="HW5 Schematic">
+                <img src="../images/IGME 470/HW5/CSV.PNG" alt="HW5 CSV">
             </div>
         </div>
 
@@ -81,10 +95,10 @@
             <div class="text">
                 <h2>Conclusion</h2>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam odio tempora error doloribus aspernatur
-                    voluptate.
+                    Overall, I really liked this chapter. It was new, fun, not too difficult, and I learned more
+                    electrical parts. Hopefully no parts explode in the near future!
                 </p>
-                <p>On To ...</p>
+                <p>On To HW6: Light Theremin</p>
                 <a href="../IGME470 Pages/IGME470.html" class="back">← Back to 470 Home Page</a>
             </div>
         </div>
