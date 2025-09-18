@@ -4,61 +4,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog HWX</title>
+    <title>Blog HW7</title>
     <link rel="stylesheet" href="../css/blogStyles.css">
 
 </head>
 
 <body>
     <header>
-        <h1>Homework X: ???</h1>
-        <p class="date">???</p>
+        <h1>Homework 7: Keyboard Instrument</h1>
+        <p class="date">9/16/25</p>
     </header>
 
     <div class="container">
         <!-- INTRO SECTION -->
         <div class="blog-post">
             <div class="text">
-                <h2>Intro</h2>
+                <h2>Doot Doot</h2>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique aspernatur id earum, vero laborum
-                    ipsa!
-                </p>
-                <p>
-                    You can include a short story, context, or hook to grab attention.
+                    Alright, so today, I'm working on Chapter 7: Keyboard Instrument. I'm going to be working with
+                    Piezos again and this time
+                    <i>as you can guess from the title</i>, I will be making a keyboard so let's just jump right into
+                    it!
                 </p>
             </div>
             <div class="media">
-                <img src="???" alt="???">
+                <img src="../images/IGME 470/HW7/Setup.jpg" alt="Setup of HW7">
             </div>
         </div>
 
         <!-- BODY SECTION -->
         <div class="blog-post">
             <div class="text">
-                <h2>Body</h2>
+                <h2>Switchin' It Up</h2>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique, unde enim eveniet aliquid
-                    veniam quam.
+                    The first thing you need to do is to make a resistor ladder. This is a way to read a number of
+                    switches using the analog input.
+                    For this project, we hook up 4 switches in parallel with each other and hook them up to power, with
+                    most of them connecting to power through a resistor.
+                    When you press each button, a different voltage level will pass to the input pin. If you press 2
+                    buttons at the same time, you'll get a unique
+                    input based on the relationship between the 2 resistors.
+                </p>
+                <p>
+                    In the code, there are 4 different notes that the piezo can play. The notes are based on the voltage
+                    read by the analog pin. So by using a couple
+                    of if statements, we can play a different note based on the voltage of one or more switches! I
+                    really liked learning about the resistor ladder.
+                    It helps visualize how the different resistors work and how powerful they can be. I knew intuitively
+                    that the more ohms on the resistor,
+                    the more power it would remove from the circuit, but it was cool literally hearing the difference
+                    and seeing the voltage in the Serial
+                    Monitor.
+                </p>
+                <p>
+                    I didn't mention this in HW6, but the way we make the piezo emit sound is by using this function
+                    called tone(). Tone() takes 3 arguments: what pin to play the sound on, what frequency to play, and
+                    how long to play the note in ms.
                 </p>
             </div>
             <div class="media">
-                <img src="" alt="???">
-                <img src="" alt="???">
-            </div>
-        </div>
-
-        <!-- BODY SECTION -->
-        <div class="blog-post">
-            <div class="text">
-                <h2>Body 2</h2>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam ab libero recusandae quo, qui quia.
-                </p>
-            </div>
-            <div class="media">
-                <img src="" alt="???">
-                <img src="" alt="???">
+                <img src="../images/IGME 470/HW7/Final Result.jpg" alt="Final result of hW7">
+                <video controls>
+                    <source src="../videos/IGME 470//HW7/Finished.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
             </div>
         </div>
 
@@ -68,8 +77,8 @@
                 <h2>Tinkercad</h2>
             </div>
             <div class="media-row">
-                <img src="" alt="???">
-                <img src="" alt="???">
+                <img src="../images/IGME 470/HW7/Schematic View.PNG" alt="HW6 Schematic">
+                <img src="../images/IGME 470/HW7/CSV.PNG" alt="HW6 CSV">
             </div>
         </div>
 
@@ -78,10 +87,11 @@
             <div class="text">
                 <h2>Conclusion</h2>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam odio tempora error doloribus aspernatur
-                    voluptate.
+                    Wow. This stuff is getting pretty cool now. Everything's getting more interactive now and I'm very
+                    excited for the next projects. I can see this project being used to play music with my niece.
+                    I think she would love seeing this type of stuff. 9/10 for sure.
                 </p>
-                <p>On To ...</p>
+                <p>On To HW8: Digital Hourglass</p>
                 <a href="../IGME470 Pages/IGME470.html" class="back">← Back to 470 Home Page</a>
             </div>
         </div>
