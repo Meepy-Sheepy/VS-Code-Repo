@@ -44,7 +44,7 @@
                 <h2>A Light Show</h2>
                 <p>
                     The circuitry is actually kind of basic. It's very similar to Chapter 1, where I just used 1 LED to turn it on. I put in 6 LEDs, each of them
-                    representing 10 seconds. These are our outputs. The new item for this chapter is the tilt sensor. The tilt sensor is like a regular switch with an
+                    representing 1 second. These are our outputs. The new item for this chapter is the tilt sensor. The tilt sensor is like a regular switch with an
                     on/off sensor, but instead there is a tiny ball inside it that detects orientation. So when we tilt it, it knows that it has been moved. The tilt
                     sensor is our input. I'm going to be using the data from the tilt sensor to be able to reset the LEDs and timer.
                 </p>
@@ -62,7 +62,14 @@
                 <p>
                     Here's a small preview of what the code looks like. Essentially, what we do in this code is keep track of the current time using
                     the millis() function which is stored in a unsigned long value of "currentTime". The use of Unsigned and Long allows us to be able
-                    to count up to 4,294,967,295 milliseconds, which is almost equivalent to 50 days.
+                    to count up to 4,294,967,295 milliseconds, which is almost equivalent to 50 days. We then check to see if the time passed is
+                    greater than the interval (in this case 1 second), then another LED turns on.
+                </p>
+                <p>
+                    Now, in the original project, there was nothing within the  "if led > 8" statement, so in order to challenge myself
+                    I decided to take the piezo that I used last time and create my own alarm clock! In that code snippet, I keep the
+                    LED at 8 just so it doesn't continously increase for no reason and I use the tone() function to make noise.
+                    The 9 is which pin is plugged into, the note is what frequency it will play at, and it will play for half a second.
                 </p>
             </div>
             <div class="media">
@@ -75,13 +82,10 @@
         <div class="blog-post">
             <div class="text">
                 <h2>Sound The Alarm!</h2>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam ab libero recusandae quo, qui quia.
-                </p>
             </div>
-            <div class="media">
-                <img src="../images/IGME 470/HW8/Challenge Final Result.jpg" alt="Final result of HW8 challenge">
-                <video controls>
+            <div class="media-row">
+                <img style="width:50%" src="../images/IGME 470/HW8/Challenge Final Result.jpg" alt="Final result of HW8 challenge">
+                <video controls style="width:50%">
                     <source src="../videos/IGME 470/HW8/Challenge Finished.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
@@ -104,10 +108,11 @@
             <div class="text">
                 <h2>Conclusion</h2>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam odio tempora error doloribus aspernatur
-                    voluptate.
+                    I think this was my favorite one so far. It was very easy to digest and I made something that can be used by people
+                    if they <i>really</i> wanted to. Being able to see real life application of the stuff I'm making
+                    is making me fired up and excited for when I make my own things for the projects that are coming up!
                 </p>
-                <p>On To ...</p>
+                <p>On To HW9: Motorized Pinwheel</p>
                 <a href="../IGME470 Pages/IGME470.html" class="back">← Back to 470 Home Page</a>
             </div>
         </div>

@@ -21,11 +21,16 @@
             <div class="text">
                 <h2>Intro</h2>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique aspernatur id earum, vero laborum
-                    ipsa!
+                    Up next, I'm doing Chapter 9: Motorized Pinwheel in the starter Arduino book--and this is where it
+                    gets
+                    a <i>little bit more complicated</i>. For this exercise, I'm going to be managing 2 different power
+                    sources:
+                    the 5V from the Arduino microcontroller, and a 9V battery. The reason why I need a 9V battery is
+                    because
+                    the motor cannot run on 5V. It needs a little more juice.
                 </p>
                 <p>
-                    You can include a short story, context, or hook to grab attention.
+                    Let's dive into the nitty gritty.
                 </p>
             </div>
             <div class="media">
@@ -36,10 +41,25 @@
         <!-- BODY SECTION -->
         <div class="blog-post">
             <div class="text">
-                <h2>Body</h2>
+                <h2>The Nitty Gritty</h2>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique, unde enim eveniet aliquid
-                    veniam quam.
+                    There's 2 new things other than the motor and battery I'm introduced to: Transistors and Diodes.
+                </p>
+                <p>
+                    Transistors are components that allow you to control high current and high voltage power sources
+                    from the low
+                    current output of the Arduino. They're like digital switches in a way--like when you provide voltage
+                    to one of the pins known as a gate,
+                    it closes the circuit between the other 2 pins, called the source and drain.
+                    We can turn a higher current/voltage motor on and off with your Arduino.
+                </p>
+                <p>
+                    I techncally know about diodes right now. LEDs are considered diodes, where currents can only go
+                    one way. However, this diode I'm using is to be able to prevent back-voltage coming from the motor
+                    when the motor is still running even when I do not press the button. I put it in the reverse of the
+                    circuit, that means, the negative (or cathode) connects
+                    the power of the motor while the positive (anode)
+                    connects to the ground of the motor.
                 </p>
             </div>
             <div class="media">
@@ -78,10 +98,10 @@
             <div class="text">
                 <h2>Conclusion</h2>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam odio tempora error doloribus aspernatur
-                    voluptate.
+                    I will say that this chapter was a little complicated, but I understood the gist of it.
+                    It seems like I will be working with the motor more so hopefully by then, I will understand more of it.
                 </p>
-                <p>On To ...</p>
+                <p>On To HW 10: Zoetrope</p>
                 <a href="../IGME470 Pages/IGME470.html" class="back">← Back to 470 Home Page</a>
             </div>
         </div>
