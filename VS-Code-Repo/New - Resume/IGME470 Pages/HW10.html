@@ -19,17 +19,23 @@
         <!-- INTRO SECTION -->
         <div class="blog-post">
             <div class="text">
-                <h2>Intro</h2>
+                <h2>Going Round N' Round</h2>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique aspernatur id earum, vero laborum
-                    ipsa!
-                </p>
-                <p>
-                    You can include a short story, context, or hook to grab attention.
+                    Today, I'm going to be doing Chapter 10: Zoetrope. A Zoetrope was an invention before the internet,
+                    or even before movies existed, that allowed
+                    people to create the first moving images. Zoetropes create the illusion of motion from a group of
+                    still images that have small changes in them.
+                    They're typically cylinders with slits cut in the side. When the cylinder spins and you look through
+                    the slits, you perceive the still images
+                    to be animated. For this assignment, I'm not going to create the cylinders as that takes some more
+                    "doing" and I am a busy college student!
+                    So the main meat of this project is to be able to turn it on and off, change the speed of the motor,
+                    and be able to reverse the direction
+                    of the motor--so let's do that!
                 </p>
             </div>
             <div class="media">
-                <img src="???" alt="???">
+                <img src="../images/IGME 470/HW10/Setup.jpg" alt="HW10 setup">
             </div>
         </div>
 
@@ -38,27 +44,46 @@
             <div class="text">
                 <h2>Body</h2>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique, unde enim eveniet aliquid
-                    veniam quam.
+                    This was a decently complex circuit I had to make. I used this new item called and H-Bridge, which
+                    are a type of component known as integrated
+                    circuits (IC). ICs are components that hold large circuits in a tiny package. It makes things a lot
+                    easier to manage and if you wanted to make your
+                    own H-Bridge, you would probably need another breadboard. <i>It's that complex.</i> It's a lot to
+                    take in and the book doesn't tell you very easily
+                    what your plugging wires into. So Nick (my professor) suggested I look on the Arduino starter kit
+                    website to see the schematic for every piece in
+                    the set and I looked at the H-Bridge one. Look below to see the schematic. It's definitely a lot
+                    easier to understand it now.
+                </p>
+                <p>
+                    There's this really annoying problem everytime I use the 9V battery and it's that it doesn't lock
+                    into the breadboard well (or at all for that matter). There were several instances where if I needed
+                    to move my breadboard, the wires would easily just fall out of the holes. I've had more success with
+                    it when I connect perpendicular to it, then once the end is in the hole, to bend the cable 90
+                    degrees.
                 </p>
             </div>
             <div class="media">
-                <img src="" alt="???">
-                <img src="" alt="???">
+                <img src="../images/IGME 470/HW10/Final Result.jpg" alt="HW10 final result">
+                <img src="../videos/IGME 470/HW10/Finished.gif" alt="HW10 showcase">
             </div>
         </div>
 
         <!-- CODE SECTION -->
         <div class="blog-post">
             <div class="text">
-                <h2>Code</h2>
+                <h2>Schematic & Code</h2>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam ab libero recusandae quo, qui quia.
+                    The code isn't too bad. First we need to read the on/off and direction switch to see if we need to
+                    turn on the motor or not or change the direction. The potPin is the potentiometer. We divide it by 4
+                    in order to get a range from 0-255 (1023/4). The first if statement is just saying that if
+                    we press a button, and the switch is on, then we want to inverse the state of the motor.
+                    The second if statement is only different in the fact that it's the direction.
                 </p>
             </div>
             <div class="media">
-                <img src="" alt="???">
-                <img src="" alt="???">
+                <img src="../images/IGME 470/HW10/H-Bridge.PNG" alt="Schematic of H-Bridge">
+                <img src="../images/IGME 470/HW10/Zoetrope Code.PNG" alt="HW10 code">
             </div>
         </div>
 
@@ -78,8 +103,7 @@
             <div class="text">
                 <h2>Conclusion</h2>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam odio tempora error doloribus aspernatur
-                    voluptate.
+                    This chapter was a fine one. It was for sure better than the Color Mixing Lamp. 8/10.
                 </p>
                 <p>On To HW 11: Crystal Ball</p>
                 <a href="../IGME470 Pages/IGME470.html" class="back">← Back to 470 Home Page</a>
