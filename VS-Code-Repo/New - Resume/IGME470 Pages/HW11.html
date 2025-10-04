@@ -19,7 +19,7 @@
         <!-- INTRO SECTION -->
         <div class="blog-post">
             <div class="text">
-                <h2>Intro</h2>
+                <h2>Mirror Mirror On The Wall</h2>
                 <p>
                     Today, I'm doing Chapter 11: Crystal Ball. In this assignment, I will use a new component called a
                     Liquid Crystal Display (LCD).
@@ -40,10 +40,33 @@
         <!-- BODY SECTION -->
         <div class="blog-post">
             <div class="text">
-                <h2>Body</h2>
+                <h2>Who's The Most Wired Of Them All?</h2>
                 <p>
-                    The overall build wasn't that bad. Just a lot of wires to plug in. One weird thing that I found was that the labels on my
-                    LCD does not match some of the ones in the book. Like VCC was VDD,
+                    The overall build wasn't that bad--just a lot of wires to plug in. One weird thing that I found was
+                    that the labels on my
+                    LCD does not match some of the ones in the book. Like VCC was VDD, but it still worked the same.
+                    Quite strange.
+                </p>
+                <p>
+                    The way this works is that at the start of the code, it sets the text for the LCD to the "welcome"
+                    state but when you shake it,
+                    the tilt sensor will sense a change to its state and then pick a random number from 0-7 and sets the
+                    text depending on what that
+                    number would set it to. I'll explain more about that in the code portion but that's pretty much it,
+                    the only complex part of this
+                    project is to know which wire goes to where in the LCD. There's a lot of inputs to it!
+                </p>
+                <p>
+                    One input is the RS or the Register Select pin. This controls where the character will appear on
+                    screen. Another one is R/W which stands for Read/Write and we
+                    connect this to ground which means we can
+                    write to it. There are 2 pins that are very similar, Vcc and LED+/-.
+                    After testing this out in Tinkercad,
+                    I found out that the Vcc powers the text that shows up on screen, while being directly powered
+                    to 5V. The LED+/- powers the screen, or the background for the text,
+                    and this, needs a resistor for the power. It was kinda cool seeing that in Tinkercad.
+                    <i>To be honest, I haven't been testing much out in it because I didn't feel like I needed to.</i>
+                    But I had it up so I just thought I try it out!
                 </p>
             </div>
             <div class="media">
@@ -57,12 +80,18 @@
             <div class="text">
                 <h2>Code</h2>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam ab libero recusandae quo, qui quia.
+                    Just liked I explained above, we read in the tilt value. 0 for if it's still,
+                    1 for if it moved. If it does move, the reply variable holds a random value (0 - 7).
+                    "lcd" is an external library which allows us to manipulate the LCD. So we first erase
+                    what's on the screen, then set cursor to (0, 0), which is the top left corner, add some text, then
+                    send the cursor to (0, 1), which is the bottom left corner.
+                    Think of it like entering in a document where you go down a line. Finally,
+                    a switch case is used to go through the range of numbers. If reply, for example, held the value 2,
+                    it would print on the second line, "Certainly."
                 </p>
             </div>
             <div class="media">
-                <img src="" alt="???">
-                <img src="" alt="???">
+                <img src="../images/IGME 470/HW11/Crystal Ball Code.PNG" alt="HW11 code">
             </div>
         </div>
 
@@ -72,8 +101,8 @@
                 <h2>Tinkercad</h2>
             </div>
             <div class="media-row">
-                <img src="" alt="???">
-                <img src="" alt="???">
+                <img src="../images/IGME 470/HW11/Schematic View.PNG" alt="HW11 schematic">
+                <img src="../images/IGME 470/HW11/CSV.PNG" alt="HW11 CSV">
             </div>
         </div>
 
@@ -82,8 +111,9 @@
             <div class="text">
                 <h2>Conclusion</h2>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam odio tempora error doloribus aspernatur
-                    voluptate.
+                    I very much enjoyed this assignment. Asking it funny questions and getting an equally or more funny
+                    response was very fun
+                    and just using screens like this is very cool. 10/10 experience.
                 </p>
                 <p>On To HW 12: Knock Lock</p>
                 <a href="../IGME470 Pages/IGME470.html" class="back">← Back to 470 Home Page</a>
