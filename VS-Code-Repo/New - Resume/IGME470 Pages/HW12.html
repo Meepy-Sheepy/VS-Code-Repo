@@ -20,11 +20,11 @@
             <div class="text">
                 <h2>Knock Knock</h2>
                 <p>
-                    Today, I'm going to be working on Chatper 12: Knock Lock. In this assignment, I won't be using any
+                    Today, I'm going to be working on Chapter 12: Knock Lock. In this assignment, I won't be using any
                     new parts today, but reusing them for a different purpose! The main character is the piezo, where
                     instead of playing back sound like I did previously, I'm going to be using it as a vibration sensor.
                     I'll be able to detect how intense a knock is and be able to use that to my advantage.
-                    There will be 3 states, Locked, Unlocked, Detected a Knock. These will be presented by LED's
+                    There will be 3 states, Locked, Unlocked, Detected a Knock. These will be presented by LEDs
                     and this project is a great example of how to show simple feedback to a user!
                 </p>
             </div>
@@ -41,8 +41,8 @@
                     The construction of this circuit was not too bad. It felt like there was a lot of simple parts
                     combined to make one unique circuit. We have a couple of 220 ohm resistors for the LEDs per usual,
                     the piezo is connected to A0 because we want to be able to write data and use it. There's a servo
-                    motor connected to the other side of the breaboard with a 100uF capacitor to smooth out any
-                    irregularities in voltage, and finally a switch to "lock", the "box".
+                    motor connected to the other side of the breadboard with a 100uF capacitor to smooth out any
+                    irregularities in voltage, and finally a switch to "lock" the "box".
                 </p>
             </div>
             <div class="media">
@@ -64,16 +64,16 @@
                     There is a function we make called checkForKnock which isn't shown on this image, but essentially
                     checks if the vibration is greater than a certain vibration
                     and less than a certain vibration. For example,
-                    of the knockVal is greater than 10 but less than 100, then it would register as true. This is here
-                    to be able to control what type of knocks we want to register.
+                    if the knockVal is greater than 10 but less than 100, then it would register as true. Here is where
+                    we can control what type of knocks we want to register.
                     <i>Do we want louder or quieter knocks?</i>
                     When that if statement is true, we increment the numberOfKnocks by 1.
                     When the numberOfKnocks is greater than or equal to 3, then the circuit will "unlock" the box.
-                    We move the motor to 0 degrees, then we change the state of the red and green LED, and finally
+                    We move the motor to 0 degrees, then we change the state of the red (off) and green (on) LED, and finally
                     print out that the box is unlocked.
                 </p>
                 <p>
-                    The code is very readable--I thought this would be more complicated.
+                    The code is very readable--I thought it would be more complicated.
                 </p>
             </div>
             <div class="media">

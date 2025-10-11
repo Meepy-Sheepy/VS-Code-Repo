@@ -53,7 +53,7 @@
                     the LED was <b>BRIGHT</b>. I felt like I was mini-flashbanged by it and it was crazy how strong the
                     light can be. I held on it for longer to see if it would short
                     circuit but it did not thankfully. I boosted the
-                    restistor to a 560 ohm resistor and it was more manageable.
+                    resistor to a 560 ohm resistor and it was more manageable.
                     The video you see on the right shows me touching tin foil--that
                     is optional really. Either touching the wire directly with your hand or
                     using tin foil produces the same result. I tried
@@ -78,10 +78,10 @@
                     library called CapacitiveSensor. This can be installed directly from the Arduino software so that's
                     nice. The variable capSensor is assigning what pin 4 and 2 do--4
                     sends to the conductive sensor material
-                    through the resistor, and pin 2 is the sense pin. Next we set up
-                    an variable for the sensing threshold at
+                    through the resistor, and pin 2 is the sense pin. Next, we set up
+                    a variable for the sensing threshold at
                     which the lamp will turn on and which pin the LED is connected to.
-                    We make it an output so it can light
+                    We make the LED an output so it can light
                     up. sensorValue is using a built-in function of the CapacitiveSensor library where it asks how many
                     samples we want to read. The more samples you ask for, the more lag may crop up,
                     the less, the more variation in the sensor. 30 is recommeneded to be the sweet spot.
