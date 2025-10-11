@@ -41,7 +41,7 @@
                     The construction of this circuit was not too bad. It felt like there was a lot of simple parts
                     combined to make one unique circuit. We have a couple of 220 ohm resistors for the LEDs per usual,
                     the piezo is connected to A0 because we want to be able to write data and use it. There's a servo
-                    motor connected to the other side of the breaboard with a 100uF capacitor to smooth out any 
+                    motor connected to the other side of the breaboard with a 100uF capacitor to smooth out any
                     irregularities in voltage, and finally a switch to "lock", the "box".
                 </p>
             </div>
@@ -56,12 +56,28 @@
             <div class="text">
                 <h2>Code</h2>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam ab libero recusandae quo, qui quia.
+                    So in this snippet of code, is most of how the knocks are being registered and how the "box"
+                    unlocks.
+                    knockVal is holding the value of the vibration of the knock. Next, there is an if statement where
+                    if the amount of knocks registered is less than 3 and the knockVal is greater than 0 (which means
+                    any amount of vibration is valid) then continue.
+                    There is a function we make called checkForKnock which isn't shown on this image, but essentially
+                    checks if the vibration is greater than a certain vibration
+                    and less than a certain vibration. For example,
+                    of the knockVal is greater than 10 but less than 100, then it would register as true. This is here
+                    to be able to control what type of knocks we want to register.
+                    <i>Do we want louder or quieter knocks?</i>
+                    When that if statement is true, we increment the numberOfKnocks by 1.
+                    When the numberOfKnocks is greater than or equal to 3, then the circuit will "unlock" the box.
+                    We move the motor to 0 degrees, then we change the state of the red and green LED, and finally
+                    print out that the box is unlocked.
+                </p>
+                <p>
+                    The code is very readable--I thought this would be more complicated.
                 </p>
             </div>
             <div class="media">
-                <img src="" alt="???">
-                <img src="" alt="???">
+                <img src="../images/IGME 470/HW12/KnockLock.PNG" alt="HW12 code">
             </div>
         </div>
 
@@ -71,8 +87,8 @@
                 <h2>Tinkercad</h2>
             </div>
             <div class="media-row">
-                <img src="" alt="???">
-                <img src="" alt="???">
+                <img src="../images/IGME 470/HW12/Schematic View.PNG" alt="HW12 schematic">
+                <img src="../images/IGME 470/HW12/CSV.PNG" alt="HW12 CSV">
             </div>
         </div>
 
@@ -81,8 +97,8 @@
             <div class="text">
                 <h2>Conclusion</h2>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam odio tempora error doloribus aspernatur
-                    voluptate.
+                    All in all, I really liked the interactivity of this project. I mentioned this before, but the user feedback from the LEDs
+                    opened my mind some more in what I could possibly do with my personal projects! 10/10 experience.
                 </p>
                 <p>On To HW 13: Touchy-Feely Lamp</p>
                 <a href="../IGME470 Pages/IGME470.html" class="back">← Back to 470 Home Page</a>

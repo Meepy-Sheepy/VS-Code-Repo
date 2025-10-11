@@ -21,10 +21,13 @@
             <div class="text">
                 <h2>You Light Me Up With Only A Touch</h2>
                 <p>
-                    Today I'm going to be working on Chapter 13: Touchy-Feely Lamp.
-                </p>
-                <p>
-                    You can include a short story, context, or hook to grab attention.
+                    Today I'm going to be working on Chapter 13: Touchy-Feely Lamp. The idea for this project is to
+                    teach me about Capacitance.
+                    Capacitance is a measure of how much electrical charge something can store and for this project, I
+                    will be powering an LED
+                    with my own body because humans are natural capacitors (Body Capacitance). This project is very
+                    simple and akin to
+                    the first project where I had to power an LED with a button. Let's get to the build!
                 </p>
             </div>
             <div class="media">
@@ -35,10 +38,28 @@
         <!-- BODY SECTION -->
         <div class="blog-post">
             <div class="text">
-                <h2>Body</h2>
+                <h2>MY EYES</h2>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique, unde enim eveniet aliquid
-                    veniam quam.
+                    The build was very easy to create. There's only a couple of wires, a resistor and an LED.
+                    First we have the LED connecting to digital pin 12, then we have 2 wires
+                    coming from digital pin 2 and 4 to the breadboard with a 1 megahom resistor
+                    connecting the two of them. Finally, we have one long jumper wire that connects to the row pin 2 is
+                    on, and the other end is extended away from the circuit,
+                    not being connected anywhere else. That disconnected end will be the touch sensor.
+                </p>
+                <p>
+                    One thing I had to do immediately after testing it out was to use a stronger resistor. When I
+                    touched the wire,
+                    the LED was <b>BRIGHT</b>. I felt like I was mini-flashbanged by it and it was crazy how strong the
+                    light can be. I held on it for longer to see if it would short
+                    circuit but it did not thankfully. I boosted the
+                    restistor to a 560 ohm resistor and it was more manageable.
+                    The video you see on the right shows me touching tin foil--that
+                    is optional really. Either touching the wire directly with your hand or
+                    using tin foil produces the same result. I tried
+                    testing out if the distance between the tinfoil and the edge of the wire
+                    would make any difference on the amount of light produced but from my very quick testing,
+                    it didn't seem like there was any noticeable effect.
                 </p>
             </div>
             <div class="media">
@@ -52,12 +73,23 @@
             <div class="text">
                 <h2>Code</h2>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam ab libero recusandae quo, qui quia.
+                    This is the entire code for this project. In order for this project to function properly, you need
+                    to install a
+                    library called CapacitiveSensor. This can be installed directly from the Arduino software so that's
+                    nice. The variable capSensor is assigning what pin 4 and 2 do--4
+                    sends to the conductive sensor material
+                    through the resistor, and pin 2 is the sense pin. Next we set up
+                    an variable for the sensing threshold at
+                    which the lamp will turn on and which pin the LED is connected to.
+                    We make it an output so it can light
+                    up. sensorValue is using a built-in function of the CapacitiveSensor library where it asks how many
+                    samples we want to read. The more samples you ask for, the more lag may crop up,
+                    the less, the more variation in the sensor. 30 is recommeneded to be the sweet spot.
+                    Finally, if the sensorValue is bigger than the threshold, turn on the LED, otherwise, turn it off.
                 </p>
             </div>
             <div class="media">
-                <img src="" alt="???">
-                <img src="" alt="???">
+                <img src="../images/IGME 470/HW13/TouchFeely.PNG" alt="HW13 code">
             </div>
         </div>
 
@@ -67,8 +99,8 @@
                 <h2>Tinkercad</h2>
             </div>
             <div class="media-row">
-                <img src="" alt="???">
-                <img src="" alt="???">
+                <img src="../images/IGME 470/HW13/Schematic View.PNG" alt="HW13 schematic">
+                <img src="../images/IGME 470/HW13/CSV.PNG" alt="HW13 CSV">
             </div>
         </div>
 
@@ -77,10 +109,14 @@
             <div class="text">
                 <h2>Conclusion</h2>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam odio tempora error doloribus aspernatur
-                    voluptate.
+                    Overall, I liked the simplicity of the project. One slightly off topic thing. I have a cochlear implant
+                    that allows me to hear and I need to charge my battery every night. Is it possible to create an implant
+                    that is charged solely by your body capacitance? I can't be the first person who thought of that
+                    but I imagine that the power we give out isn't enough to power the ability to hear...or is it?
+                    That would be so cool if that were to exist (even cooler in my lifetime), but I do wonder how much energy
+                    it would cost to power it by your body. Would you get tired more? Just some food for thought. 10/10.
                 </p>
-                <p>On To HW 14: </p>
+                <p>On To HW 14: Tweak The Logo</p>
                 <a href="../IGME470 Pages/IGME470.html" class="back">← Back to 470 Home Page</a>
             </div>
         </div>
