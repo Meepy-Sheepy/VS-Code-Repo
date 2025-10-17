@@ -26,7 +26,7 @@
                     works with Serial Communication. The gist of this chapter is that I will be using the Arduino
                     to communicate to my computer to send data back and forth to other applications. I will be
                     using a software called Processing which is a visual programming software and the end goal
-                    is to be able to change the color of the image displayed in Processing with a potentiometer.
+                    is to be able to change the background of the image displayed in Processing with a potentiometer.
                     So let's get right into it!
                 </p>
             </div>
@@ -58,28 +58,25 @@
                 <h2>Code</h2>
                 <p>
                     Let's start with the Arduino code. In order to start serial communication, you need to write
-                    Serial.begin() in start.
-                    With this, you can write Serial.println() if you wanted to debug some things (which is how I used
-                    it), but in this
-                    case, we are going to use another function of Serial, which is Serial.write(). This allows to us to
-                    send information
-                    over the serial connection, in a value range of 0-255, but analog pins can read and send values from
-                    0 - 1023 so we have to scale
+                    Serial.begin() in start. With this, you can write Serial.println()
+                    if you wanted to debug some things (which is how I used
+                    it), but in this case, we are going to use another function of Serial,
+                    which is Serial.write(). This allows to us to
+                    send information over the serial connection, in a value range of 0-255,
+                    but analog pins can read and send values from 0 - 1023 so we have to scale
                     it down by dividing by 4. After sending the information, we use a delay of 1/10 of a second as to
                     not overload the system and cause lag.
                 </p>
                 <p>
-                    Now in Processing world, Processing doesn't automatically have serial communication capabilities so
-                    we have
-                    to give it that by importing processing.serial. From there, we have to create a Serial object that
-                    will
-                    hold the ncessessary information to process the serial connection, such as which application
+                    Now in Processing world, Processing doesn't automatically have serial communication
+                    capabilities so we have to give it that by importing processing.serial.
+                    From there, we have to create a Serial object that will hold the necessary
+                    information to process the serial connection, such as which application
                     it will be speaking to (Processing), which serial port it will communicate over (COM3), and at what
-                    speed (9600 bauds).
-                    We load in an image on the internet, and if there is any values coming from the port the serial
-                    connection is on,
-                    then we read it out and store it in bgColor which then would be applied to the hue of the
-                    background, shown on line 44.
+                    speed (9600 bauds). We load in an image from the internet, and if
+                    there is any values coming from the port the serial
+                    connection is on, then we read it out and store it in bgColor
+                    which then would be applied to the hue of the background, shown on line 44.
                 </p>
             </div>
             <div class="media">
