@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog HW14</title>
     <link rel="stylesheet" href="../css/blogStyles.css">
-
 </head>
 
 <body>
@@ -19,32 +18,37 @@
         <!-- INTRO SECTION -->
         <div class="blog-post">
             <div class="text">
-                <h2>Intro</h2>
+                <h2>I'm Tweaking Out Y'all</h2>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique aspernatur id earum, vero laborum
-                    ipsa!
-                </p>
-                <p>
-                    You can include a short story, context, or hook to grab attention.
+                    Today, I'm going to be working on Chapter 14: Tweak The Logo. These last 2 chapters are very
+                    different from the rest
+                    of the book. I'm now elevating my physical computation skills with more advanced topics! This one
+                    works with Serial Communication. The gist of this chapter is that I will be using the Arduino
+                    to communicate to my computer to send data back and forth to other applications. I will be
+                    using a software called Processing which is a visual programming software and the end goal
+                    is to be able to change the color of the image displayed in Processing with a potentiometer.
+                    So let's get right into it!
                 </p>
             </div>
             <div class="media">
-                <img src="???" alt="???">
+                <img src="../images/IGME 470/HW14/Setup.jpg" alt="HW14 setup">
             </div>
         </div>
 
         <!-- BODY SECTION -->
         <div class="blog-post">
             <div class="text">
-                <h2>Body</h2>
+                <h2>Morty, Look At Me! I'm Changing Colors!</h2>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique, unde enim eveniet aliquid
-                    veniam quam.
+                    The circuitry was painfully easy--it only requires a potentiometer and a couple of jumper cables to
+                    connect to power, ground, and AO as the input.
+                    The programming part was the meat of this project. There's really nothing more I can say on the
+                    building of the circuit, so let's go to the code!
                 </p>
             </div>
             <div class="media">
-                <img src="" alt="???">
-                <img src="" alt="???">
+                <img src="../images/IGME 470/HW14/Final Result.jpg" alt="HW14 final result">
+                <img src="../videos/IGME 470/HW14/Finished.gif" alt="HW14 showcase">
             </div>
         </div>
 
@@ -53,12 +57,34 @@
             <div class="text">
                 <h2>Code</h2>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam ab libero recusandae quo, qui quia.
+                    Let's start with the Arduino code. In order to start serial communication, you need to write
+                    Serial.begin() in start.
+                    With this, you can write Serial.println() if you wanted to debug some things (which is how I used
+                    it), but in this
+                    case, we are going to use another function of Serial, which is Serial.write(). This allows to us to
+                    send information
+                    over the serial connection, in a value range of 0-255, but analog pins can read and send values from
+                    0 - 1023 so we have to scale
+                    it down by dividing by 4. After sending the information, we use a delay of 1/10 of a second as to
+                    not overload the system and cause lag.
+                </p>
+                <p>
+                    Now in Processing world, Processing doesn't automatically have serial communication capabilities so
+                    we have
+                    to give it that by importing processing.serial. From there, we have to create a Serial object that
+                    will
+                    hold the ncessessary information to process the serial connection, such as which application
+                    it will be speaking to (Processing), which serial port it will communicate over (COM3), and at what
+                    speed (9600 bauds).
+                    We load in an image on the internet, and if there is any values coming from the port the serial
+                    connection is on,
+                    then we read it out and store it in bgColor which then would be applied to the hue of the
+                    background, shown on line 44.
                 </p>
             </div>
             <div class="media">
-                <img src="" alt="???">
-                <img src="" alt="???">
+                <img src="../images/IGME 470/HW14/TweakTheLogo.PNG" alt="HW14 Arduino code">
+                <img src="../images/IGME 470/HW14/TweakTheLogoProcessing.PNG" alt="HW14 Processing code">
             </div>
         </div>
 
@@ -68,8 +94,8 @@
                 <h2>Tinkercad</h2>
             </div>
             <div class="media-row">
-                <img src="" alt="???">
-                <img src="" alt="???">
+                <img src="../images/IGME 470/HW14/Schematic View.PNG" alt="HW14 Schematic">
+                <img src="../images/IGME 470/HW14/CSV.PNG" alt="HW14 CSV">
             </div>
         </div>
 
@@ -78,8 +104,10 @@
             <div class="text">
                 <h2>Conclusion</h2>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam odio tempora error doloribus aspernatur
-                    voluptate.
+                    It was quite awesome to see interaction like that right before my eyes. It's a little freaky how
+                    other human beings before me
+                    figured this out, and even before that, how people thought to use rocks to make computers! Crazy
+                    world we live in.
                 </p>
                 <p>On To HW 15: Hacking Buttons</p>
                 <a href="../IGME470 Pages/IGME470.html" class="back">← Back to 470 Home Page</a>

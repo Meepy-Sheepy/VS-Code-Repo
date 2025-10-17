@@ -19,32 +19,55 @@
         <!-- INTRO SECTION -->
         <div class="blog-post">
             <div class="text">
-                <h2>Intro</h2>
+                <h2>The Time Is Nigh</h2>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique aspernatur id earum, vero laborum
-                    ipsa!
+                    Wow, wow, wow. The final chapter. Already half of the semester has gone by and soon I'll be
+                    completely done with college! I'll be graduating in the winter
+                    because of my wonky schedule and tranfer credits--but
+                    enough about that! Today, I'll be working on Chapter 15:
+                    Hacking Buttons, where I'll be taking apart a
+                    remote and controlling an LED strip with my Arduino! I'll be using a
+                    new part today, called the Optocoupler. Optocouplers are intergrated circuits
+                    (ICs) that allow you to control one circuit from a different
+                    one without any eletrical connection between the two. Inside the optocoupler is an LED and a light
+                    detecter. When the LED in the optocoupler is turned on by the Arduino, the light detector
+                    closes a switch internally. When the switch is closed, that means the 2 output pins inside
+                    are connected, when it's open, they're not connected.
+                    Using an IC like this allows you to close switches on other devices
+                    without connecting them to your Arduino.
                 </p>
                 <p>
-                    You can include a short story, context, or hook to grab attention.
+                    Let's get right into the build!
                 </p>
             </div>
             <div class="media">
-                <img src="???" alt="???">
+                <img src="../images/IGME 470/HW15/Setup.jpg" alt="HW15 setup">
             </div>
         </div>
 
         <!-- BODY SECTION -->
         <div class="blog-post">
             <div class="text">
-                <h2>Body</h2>
+                <h2>Hackerman GO!</h2>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique, unde enim eveniet aliquid
-                    veniam quam.
+                    The build for this was fairly simple like Chapter 14. What we do first is to only add the
+                    ground connection to the breadboard, then add the optocoupler to the breadboard.
+                    Now, with the optocoupler, there are 6 pins inside and it is important which ones
+                    we use. Pin 1 (top left), will be connected to digital pin 2 via a 220 ohm resistor,
+                    and pin 2, connecting to ground--we have completed the loop. Then we take 2 jumper cables
+                    and connect them to pin 4 and 5.
+                </p>
+                <p>
+                    Next we have to take apart the remote, inside there's a bunch of metal plates in a fork-like
+                    pattern. This is normal to see in most remotes. We take the ends of the cables connected
+                    to pins 4 and 5 and tape it to a button of choice. For me, since I'm using an LED strip,
+                    I decided to tape it to the red button--that means whenever I activate my Arduino, it will
+                    change the LED strip to red.
                 </p>
             </div>
             <div class="media">
-                <img src="" alt="???">
-                <img src="" alt="???">
+                <img src="../images/IGME 470/HW15/Final Result.jpg" alt="HW15 final result">
+                <img src="../videos/IGME 470/HW15/Finished.gif" alt="HW15 showcase">
             </div>
         </div>
 
@@ -53,12 +76,17 @@
             <div class="text">
                 <h2>Code</h2>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam ab libero recusandae quo, qui quia.
+                    The code is also relatively simple too. How I wanted to do this was when I press a button, the LED
+                    strip would change color. I use a switchPin variable as an output
+                    and keep track of it using a switchState
+                    variable. In loop(), we would constantly read the value of the
+                    switchPin and store it in the switchState and by comparing
+                    if the switchState has been pressed, we would send a signal to the optocoupler to connect,
+                    otherwise, close the connection.
                 </p>
             </div>
             <div class="media">
-                <img src="" alt="???">
-                <img src="" alt="???">
+                <img src="../images/IGME 470/HW15/HackingButtons.PNG" alt="HW15 code">
             </div>
         </div>
 
@@ -68,8 +96,8 @@
                 <h2>Tinkercad</h2>
             </div>
             <div class="media-row">
-                <img src="" alt="???">
-                <img src="" alt="???">
+                <img src="../images/IGME 470/HW15/Schematic View.PNG" alt="HW15 Schematic">
+                <img src="../images/IGME 470/HW15/CSV.PNG" alt="HW15 CSV">
             </div>
         </div>
 
@@ -78,8 +106,11 @@
             <div class="text">
                 <h2>Conclusion</h2>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam odio tempora error doloribus aspernatur
-                    voluptate.
+                    Overall, this chapter feels like a good conclusionary chapter for the starter book. It holds your
+                    hand the entire time up until this point where you have to explore what
+                    you have around you to tinker with, which could inspire more tinkering
+                    and creation beyond the book. I really enjoyed this doing this and
+                    the Color Mixing Lamp still reigns as the worst assignment of all time!
                 </p>
                 <p>On To Project 1: Plant Problem</p>
                 <a href="../IGME470 Pages/IGME470.html" class="back">← Back to 470 Home Page</a>
