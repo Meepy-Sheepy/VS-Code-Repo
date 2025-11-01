@@ -24,12 +24,14 @@
                     pretending I'm Tony Stark in a cave with a box of scraps! Today, I will be doing the
                     "Hello World" of the physical computing world, also known as the Plant Problem.
                     The goal is to have a project where you can solve a plant problem, such as moisture level
-                    tracking watering, self-watering, ect. Additionall, this is about is that
-                    I have to learn the process of getting a part on the internet and create
-                    something with the skills that I've procured over the 2 1/2 months!
+                    tracking watering, self-watering, ect. Additionally, this is about learning
+                    the process of getting a part on the internet and create
+                    something with the skills that I've procured over the last 2 1/2 months!
                 </p>
                 <p>
-                    My Plant Problem consists of a moisture sensor combined with the LCD (Liquid Crystal Display) and a
+                    My Plant Problem is going to target the moisture level of the plant, as to not over
+                    or under-water the plant. The parts I need consists of a moisture sensor
+                    combined with the LCD (Liquid Crystal Display) and a
                     potentiometer. Overall quite the simple circuitry, but let's get <i>dig</i> in! (Get it?)
                 </p>
             </div>
@@ -71,7 +73,8 @@
                 </ol>
 
                 <p>
-                    I wanted to add more text, but the LCD screen is 16x2, meaning I can
+                    I wanted to add more text--adding father in all the dialogue options,
+                    but the LCD screen is 16x2, meaning I can
                     only have 16 characters per row and a max of 2 rows.
                 </p>
             </div>
@@ -86,12 +89,34 @@
             <div class="text">
                 <h2>Code</h2>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam ab libero recusandae quo, qui quia.
+                    While the circuitry was simple, the code was also very simple. Since my project
+                    revolves around the modification of the Crystal Ball project, all I really needed
+                    was 2 variables:
+                </p>
+
+                <ol style="font-size: 20px;">
+                    <li>moisturePin - The pin where the moisture sensor is connected to.</li>
+                    <li>moistureVal - The value that the moisture sensor is outputting based on the moisture level.</li>
+                </ol>
+
+                <p>
+                    In Loop(), I read the moisturePin's values and assign them to the moistureVal.
+                    The next thing is getting those values and printing out a state depending on the moisture level.
+                    This is where the if statements come in. When initially testing the values, it had this
+                    weird range from ~469 to ~234. I tried to map the values to a 0 to 235 (the difference of those
+                    2 values), but it didn't work the way I wanted it to so I had to use the raw values.
+                </p>
+                <p>
+                    After reseaching the plant I got for 5 bucks at a RIT vender, it was a jade plant. They
+                    are very easy to maintain and don't require watering until the top 2 inches
+                    of soil is completely dry but it can be a problem if they're overwatered.
+                    So I guessimated some values to align with the needs
+                    of this plant by having a low range of craving water, a big range of the sated state, and
+                    a mid-range of being overwatered.
                 </p>
             </div>
             <div class="media">
-                <img src="" alt="???">
-                <img src="" alt="???">
+                <img src="../images/IGME 470/PlantProblem/PlantProblem.PNG" alt="Plant Problem code">
             </div>
         </div>
 
@@ -101,20 +126,45 @@
                 <h2>Tinkercad</h2>
             </div>
             <div class="media-row">
-                <img src="" alt="???">
-                <img src="" alt="???">
+                <img src="../images/IGME 470/PlantProblem/Schematic View.PNG" alt="Plant Problem schematic">
+                <img src="../images/IGME 470/PlantProblem/CSV.PNG" alt="Plant Problem CSV">
             </div>
         </div>
+
+        <!-- REFERENCE SECTION -->
+        <div class="blog-post">
+            <div class="text">
+                <h2>References</h2>
+                <ol style="font-size: 20px;">
+                    <li>Chapter 11: Crystal Ball - Arduino Starter Guide</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- Post Mortum SECTION -->
+        <div class="blog-post">
+            <div class="text">
+                <h2>Post Mortum</h2>
+            </div>
+            <div class="media-row">
+                <img src="../images/IGME 470/PlantProblem/Schematic View.PNG" alt="Plant Problem schematic">
+                <img src="../images/IGME 470/PlantProblem/CSV.PNG" alt="Plant Problem CSV">
+            </div>
+        </div>
+
 
         <!-- CONCLUSION SECTION -->
         <div class="blog-post">
             <div class="text">
                 <h2>Conclusion</h2>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam odio tempora error doloribus aspernatur
-                    voluptate.
+                    This was a very good stepping stone for getting outside of the book. The moisture sensor
+                    is the perfect item to buy since there's not many things you can do wrong with them.
+                    Each time I complete a project, I feel more and more confident that I can do
+                    a bigger thing next time. This class is paced very well in my opinion
+                    and structured amazingly!
                 </p>
-                <p>On To ...</p>
+                <p>On To Project 2: Alternative Controller</p>
                 <a href="../IGME470 Pages/IGME470.html" class="back">← Back to 470 Home Page</a>
             </div>
         </div>
