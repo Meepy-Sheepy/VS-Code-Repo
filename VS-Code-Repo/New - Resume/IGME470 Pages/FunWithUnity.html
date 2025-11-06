@@ -28,7 +28,7 @@
                 </p>
             </div>
             <div class="media">
-                <img src="???" alt="???">
+                <img src="../images/IGME 470/FunWithUnity/Setup.jpg" alt="FunWithUnity setup">
             </div>
         </div>
 
@@ -37,15 +37,15 @@
             <div class="text">
                 <h2>Unifying Worlds</h2>
                 <p>
-                    Luckily, Nick provided us with Github folder detailing how we go about connecting the Arduino
-                    to Unity. The first thing to do is to make the circuitry--which is very easy and only adds an
+                    Luckily, Nick provided us with a Github repo detailing how we go about connecting the Arduino
+                    to Unity and vice versa. The first thing to do is to make the circuitry--which is very easy and only
+                    adds an
                     LED and a 220 ohm resistor if you're following the Tweak The Logo assignment. There's
                     nothing else you do with the Arduino so let's get to get to the code.
                 </p>
             </div>
             <div class="media">
-                <img src="" alt="???">
-                <img src="" alt="???">
+                <img src="../images/IGME 470/FunWithUnity/Final Result.jpg" alt="FunWithUnity final result">
             </div>
         </div>
 
@@ -54,43 +54,53 @@
             <div class="text">
                 <h2>Code</h2>
                 <p>
-                    Now the code is in 2 places. In the Arduino IDE and Unity, to make this simple to
+                    Now the code is in 2 places: the Arduino IDE and Unity. To make this simple to
                     understand, I will talk about the Arduino code first, then Unity.
+                </p>
+                <p>
+                    To start off, we create 2 variables: readData and mappedData. readData takes in the raw values of
+                    the potentiometer while the mapped data, maps the raw values from 0 - 1023 to -100 - 100.
+                    We do that range because for later, we will want the decimal precision and also,
+                    the map function uses integer math so fractions will be suppressed because of this.
+                    If we do the mapping now, then later, we can divide the values in Unity by 100
+                    to get that nice-nice precision we want.
+
+                    Then, we create our own "struct". This struct is mainly constructed just to get us
+                    to get a feel for things--we only really need the mappedData for this assignment.
+                    But we do this so when we go into Unity, we can read the mappedData and have the
+                    the game be controlled by the potentiometer.
+
+                    The last section is to check if there is any information to be read
+                    on the serial port. If so, then based on the value of the data variable,
+                    either turn on or off the LED.
+                </p>
+                <p>
+                    Up next is the Unity code. Before you even start coding, you have to make the
+                    C# scripts be able to use the Serial.IO.Ports library. To do this,
+                    you have to go into Edit → Project Settings → Player → (drop down) Other Settings
+                    → (scroll down) Configuration → Api Compatibility Level then
+                    change the Api Compatability Level from .NET Standard 2.1 to .NET Framework.
+                    I only show the Update code but what we do beforehand is check which
+                    port the Arduino is connected to,
+                    the baud rate, have a string called receivedString and a Transform reference
+                    for the cube's location, rotation, and scale.
+
+                    Now, is where the fun stuff begins. We split the string received from the dataStream,
+                    split it where the commas are, and once we do that, we can access/parse the mappedData.
+                    Since we've mapped it to -100 - 100, we can divide by 100 to get the decimal precision
+                    I referenced earlier and finally apply the newX value to the x position of the cube.
+                    The final line of code is how you get it to move.
+
+                    But we're not done yet, because there is still the communication from Unity to the Arduino
+                    we need to do. The next chunk of code does just that. Depending on if the cube's x position
+                    is less than 0, it outputs a different value. If it is less, write 1, otherwise, write 0.
+                    If you refer back to the bottom part of the Arduino code, now you can see how Unity
+                    is sending data back to the Arduino for the LED to turn on/off.
                 </p>
             </div>
             <div class="media">
-                <img src="" alt="???">
-            </div>
-        </div>
-
-        <!-- TINKERCAD SECTION -->
-        <div class="blog-post">
-            <div class="text">
-                <h2>Tinkercad</h2>
-            </div>
-            <div class="media-row">
-                <img src="" alt="???">
-                <img src="" alt="???">
-            </div>
-        </div>
-
-        <!-- REFERENCE SECTION -->
-        <div class="blog-post">
-            <div class="text">
-                <h2>References</h2>
-                <ol style="font-size: 20px;">
-                    <li></li>
-                </ol>
-            </div>
-        </div>
-
-        <!-- Post Mortum SECTION -->
-        <div class="blog-post">
-            <div class="text">
-                <h2>Post Mortum</h2>
-            </div>
-            <div class="media-row">
-                <iframe width="800" height="450" src=""></iframe>
+                <img src="../images/IGME 470/FunWithUnity/FunWithUnityArduino.PNG" alt="FunWithUnity Arduino code">
+                <img src="../images/IGME 470/FunWithUnity/FunWithUnityUnity.PNG" alt="FunWithUnity Unity code">
             </div>
         </div>
 
@@ -99,10 +109,10 @@
             <div class="text">
                 <h2>Conclusion</h2>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam odio tempora error doloribus aspernatur
-                    voluptate.
+                    Overall, this was a great assignment to do to get started on my Project 2: Alternative Controller.
+                    I use a potentiometer for my project so the workload will be lighter. I can't wait to get started!
                 </p>
-                <p>On To ...</p>
+                <p>On To Project 2: Alternative Controller</p>
                 <a href="../IGME470 Pages/IGME470.html" class="back">← Back to 470 Home Page</a>
             </div>
         </div>
