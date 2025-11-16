@@ -47,7 +47,7 @@
                 <p>
                     So, the first thing I needed to do was find out what part Nick gave me. He didn't know
                     from the top of his head what type of part it is, so I took a picture of the
-                    packaging, and found the part on Amazon. In the titling, it was called
+                    packaging and found the part on Amazon. In the titling, it was called
                     a rotary encoder. I didn't know what that was so I looked that up in the
                     context of Arduinos and I found this arduinogetstarted
                     website and the stars aligned because as I scrolled down
@@ -64,7 +64,6 @@
                 <ol style="font-size: 20px;">
                     <li>It can spin in a full circle without stopping.</li>
                     <li>Can be used to figure out how much the knob has moved, not exactly where it is.</li>
-                    <li>And of course, the analog/digital difference.</li>
                 </ol>
 
                 <p>
@@ -94,20 +93,21 @@
                 <img src="../images/IGME 470/AlternativeController/Final Result.jpg"
                     alt="Alternative Controller final result">
                 <img src="../videos/IGME 470/AlternativeController/Finished.gif" alt="AlternativeController showcase">
+
             </div>
         </div>
 
         <!-- CODE SECTION -->
         <div class="blog-post">
             <div class="text">
-                <h2>You Spin Me Right Round</h2>
+                <h2>You Spin Me Right Round (Arduino)</h2>
                 <p>
                     Once again, the Arduino gods has blessed me with code on how to use the
                     rotary encoder. To be able to use the button (SW pin) part of the encoder,
                     we have to install and import a library from the Arduino IDE.
                     This library is called ezButton. It is incredibly easy to use and only
                     adds a couple lines. We call the ezButton loop function and make
-                    an if statement using the built-in function isPressed() to detect when
+                    an if statement using the built-in function--isPressed()--to detect when
                     the button is pressed to print out "UNLOCK" to the serial console.
                 </p>
 
@@ -116,8 +116,10 @@
                 </p>
 
                 <ol style="font-size: 20px;">
-                    <li>CPR - Count Per Revolution. How many clicks it takes to do a full rotation</li>
-                    <li>Counter - Tracks the user's knob turns</li>
+                    <li>CPR - Counts Per Revolution. How many clicks it takes to do a full rotation. Higher number = more
+                        granular rotation.</li>
+                    <li>Counter - Tracks the user's knob turns.</li>
+                    <li>Angle - Angle of rotation the knob is in.</li>
                 </ol>
 
                 <p>
@@ -128,12 +130,75 @@
                     incremented or decremented. If you look hard enough, you'll find that the counter
                     is the opposite of what it should be. When you turn CW, the counter is decremented,
                     and vice versa. This is happening because in Unity, the rotation opposes the rotation
-                    of the encoder, so I changed the math here rather than in Unity, to make
+                    of the encoder, so I changed the math here rather than in Unity to make
                     it easier on myself.
+                </p>
+                <p>
+                    The next lines deal with the counter and CPR. We want to keep the rotation
+                    within 0-360 degrees and those 2 if statements detect if the counter is
+                    above the CPR max or below 0. The angle is calcalated by dividing 360 degrees
+                    by the how many rotations it takes to make a full rotation (CPR),
+                    multiplied by the amount of rotations the user has made (counter).
+                </p>
+
+                <p>
+                    To make the LED work the way I want to, I detect if there is anything in
+                    the serial console and read in the data. Once I do that, I can easily
+                    turn on and off the LED based on which data is being inputted to the console.
                 </p>
             </div>
             <div class="media">
-                <img src="" alt="???">
+                <img src="../images/IGME 470/AlternativeController/AlternativeController Code.PNG"
+                    alt="AlternativeController Arduino code">
+            </div>
+        </div>
+
+        <!-- CODE SECTION -->
+        <div class="blog-post">
+            <div class="text">
+                <h2>You Spin Me Right Round (Unity)</h2>
+                <p>
+                    The code in Unity is very similar to Participation: Fun With Unity assignment. It was a matter of
+                    coincidence that I wanted to use a potentiometer/encoder for this project.
+                    It made things easier when connecting the Arduino to Unity. The overarching idea behind
+                    the code is that at the start of the game, there is a random angle. The player can
+                    rotate the lock and find the angle. Once they do, the LED turns on, and if they click
+                    the encoder, their score will increase, the LED will turn off, and there is a new
+                    random angle.
+                </p>
+                <p>
+                    In the Arduino, I'm sending a couple of lines to the serial console such as:
+                </p>
+
+                <ol style="font-size: 20px;">
+                    <li>ANGLE: angle</li>
+                    <li>DIRECTION: CW/CCW (Not in use, in the code to potentially be used for Project 4)</li>
+                    <li>UNLOCK</li>
+                </ol>
+
+                <p>
+                    These print statements can be communicated to other programs if they are able to have serial
+                    communication. So in Unity, I detect what string it's currently
+                    reading starts with: ANGLE, DIRECTION, UNLOCK.
+                    If it's ANGLE, I split the string at the colon (:), and use the last part of the string to use for
+                    rotating the lock, the actual angle value. DIRECTION is not
+                    used right now as it is a stretch goal for Project 4.
+                    I'm thinking about using the direction to lock the player to a CW -> CCW -> CW
+                    formation, like how you unlock a combination lock normally. In the current
+                    iteration, you can go either direction to find the number. If it's UNLOCK,
+                    that means the player can "unlock" the lock.
+                </p>
+                <p>
+                    Finally, there is the IsInRange function, which returns a boolean. This function finds the shortest
+                    distance between the random angle and the angle the player is currently on.
+                    There is a tolerance value which helps be more generous on if the player is
+                    on the random angle or not.
+                </p>
+
+            </div>
+            <div class="media">
+                <img src="../images/IGME 470/AlternativeController/AlternativeControllerUnity Code.PNG"
+                    alt="AlternativeController Unity code">
             </div>
         </div>
 
@@ -169,8 +234,9 @@
                 <h2>References</h2>
                 <ol style="font-size: 20px;">
                     <li><a href="https://arduinogetstarted.com/tutorials/arduino-rotary-encoder">Rotary Encoder
-                            Arduino</a></li>
-                    <li>Amazon Part</li>
+                            ArduinoGetStarted</a></li>
+                    <li><a href="https://a.co/d/gT4SrAa">Rotary Encoder
+                            Amazon</a></li>
                 </ol>
             </div>
         </div>
