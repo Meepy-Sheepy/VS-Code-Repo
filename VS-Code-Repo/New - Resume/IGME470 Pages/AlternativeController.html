@@ -18,7 +18,7 @@
         <!-- INTRO SECTION -->
         <div class="blog-post">
             <div class="text">
-                <h2>Intro</h2>
+                <h2>Don't Be Suspicious, Don't Be Suspicious</h2>
                 <p>
                     Welcome! Today, I'm going to go through the process of Project 2: Alternative Controller.
                     this project is about creating an <i>alternative</i> controller to create interaction
@@ -26,8 +26,8 @@
                     similar, where you, as a burglar, are trying to pick a lock.
                 </p>
                 <p>
-                    Originally, my circuitry was going to use a 360 potentiometer (technically named a rotary encoder) 
-                    for the rotation of the lock and a button to confirm the number 
+                    Originally, my circuitry was going to use a 360 potentiometer (technically named a rotary encoder)
+                    for the rotation of the lock and a button to confirm the number
                     on the combination lock, but Nick, my professor, had offered to give me a rotary encoder from his
                     office which combined both the button aspect and the rotation! It was quite convenient.
                     Secondly, I didn't have any feedback for the player to know which number was the correct one,
@@ -43,24 +43,93 @@
         <!-- BODY SECTION -->
         <div class="blog-post">
             <div class="text">
-                <h2>Body</h2>
+                <h2>Crime Are Kinda Hard To Commit</h2>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique, unde enim eveniet aliquid
-                    veniam quam.
+                    So, the first thing I needed to do was find out what part Nick gave me. He didn't know
+                    from the top of his head what type of part it is, so I took a picture of the
+                    packaging, and found the part on Amazon. In the titling, it was called
+                    a rotary encoder. I didn't know what that was so I looked that up in the
+                    context of Arduinos and I found this arduinogetstarted
+                    website and the stars aligned because as I scrolled down
+                    to compare the part on this website to mine, <i>it was the <b>exact</b> same one.</i>
+                    My jaw dropped. I could not believe the part Nick gave me was somehow the
+                    one this tutorial was using.
                 </p>
+                <p>
+                    When I used the potentiometer that comes with the starter kit, that potentiometer
+                    outputs analog voltage, while this one outputs digital pulses. This was a shock
+                    because I assumed it would be analog as well but a rotary encoder can do more things:
+                </p>
+
+                <ol style="font-size: 20px;">
+                    <li>It can spin in a full circle without stopping.</li>
+                    <li>Can be used to figure out how much the knob has moved, not exactly where it is.</li>
+                    <li>And of course, the analog/digital difference.</li>
+                </ol>
+
+                <p>
+                    The encoder has a couple of new pins which are not very clear at first, but here's
+                    what they are and what they mean:
+                </p>
+
+                <ol style="font-size: 20px;">
+                    <li>CLK Pin - Main pulse that tell us how much rotation has occured. Whenever you
+                        turn the knob by 1 detent (click) in either direction, the CLK pin outputs
+                        a signal that completes a full cycle (LOW -> HIGH -> LOW).
+                    </li>
+                    <li>DT Pin - Acts like the CLK pin but it outputs a signal which lags behind the CLK
+                        signal by 90 degrees. Helps figure out the direction of rotation (CW/CCW).
+                    </li>
+                    <li>SW Pin - The output from the pushbutton inside the encoder. It's normally open.
+                        The pin will be HIGH when it's not pressed, and LOW when pressed.
+                    </li>
+                    <li>VCC Pin - Needs to be connected to VCC (between 3.3 to 5V).</li>
+                    <li>GND Pin - Needs to be connected to GND.</li>
+                </ol>
+
+                <p>With that, I think it's time to get into the code portion of this assignment!</p>
+
             </div>
             <div class="media">
-                <img src="" alt="???">
-                <img src="" alt="???">
+                <img src="../images/IGME 470/AlternativeController/Final Result.jpg"
+                    alt="Alternative Controller final result">
+                <img src="../videos/IGME 470/AlternativeController/Finished.gif" alt="AlternativeController showcase">
             </div>
         </div>
 
         <!-- CODE SECTION -->
         <div class="blog-post">
             <div class="text">
-                <h2>Code</h2>
+                <h2>You Spin Me Right Round</h2>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam ab libero recusandae quo, qui quia.
+                    Once again, the Arduino gods has blessed me with code on how to use the
+                    rotary encoder. To be able to use the button (SW pin) part of the encoder,
+                    we have to install and import a library from the Arduino IDE.
+                    This library is called ezButton. It is incredibly easy to use and only
+                    adds a couple lines. We call the ezButton loop function and make
+                    an if statement using the built-in function isPressed() to detect when
+                    the button is pressed to print out "UNLOCK" to the serial console.
+                </p>
+
+                <p>
+                    There are a couple of variables we need to talk about:
+                </p>
+
+                <ol style="font-size: 20px;">
+                    <li>CPR - Count Per Revolution. How many clicks it takes to do a full rotation</li>
+                    <li>Counter - Tracks the user's knob turns</li>
+                </ol>
+
+                <p>
+                    The big chunk of the loop function is the logic for knob rotation.
+                    The first if statement only returns true when a pulse has occured, and
+                    if the knob is high. The next part of the code detects if the knob is turned
+                    in the CW or CCW direction. Based on the direction, the counter is
+                    incremented or decremented. If you look hard enough, you'll find that the counter
+                    is the opposite of what it should be. When you turn CW, the counter is decremented,
+                    and vice versa. This is happening because in Unity, the rotation opposes the rotation
+                    of the encoder, so I changed the math here rather than in Unity, to make
+                    it easier on myself.
                 </p>
             </div>
             <div class="media">
@@ -68,14 +137,29 @@
             </div>
         </div>
 
-        <!-- TINKERCAD SECTION -->
+        <!-- TINKERCAD I SECTION -->
         <div class="blog-post">
             <div class="text">
-                <h2>Tinkercad</h2>
+                <h2>Tinkercad I</h2>
             </div>
             <div class="media-row">
-                <img src="" alt="???">
-                <img src="" alt="???">
+                <img src="../images/IGME 470/AlternativeController/Visual Schematic.png"
+                    alt="AlternativeController visual schematic">
+                <img src="../images/IGME 470/AlternativeController/Rotary Encoder Schematic.png"
+                    alt="Rotary Encoder schematic view">
+            </div>
+            <p><i>Note: Replace the potentiometer with a rotary encoder and keep the LED.</i></p>
+        </div>
+
+        <!-- TINKERCAD II SECTION -->
+        <div class="blog-post">
+            <div class="text">
+                <h2>Tinkercad II</h2>
+            </div>
+            <div class="media-row">
+                <img src="../images/IGME 470/AlternativeController/Schematic View.png"
+                    alt="AlternativeController schematic view">
+                <img src="../images/IGME 470/AlternativeController/CSV.png" alt="AlternativeController CSV">
             </div>
         </div>
 
@@ -84,7 +168,9 @@
             <div class="text">
                 <h2>References</h2>
                 <ol style="font-size: 20px;">
-                    <li></li>
+                    <li><a href="https://arduinogetstarted.com/tutorials/arduino-rotary-encoder">Rotary Encoder
+                            Arduino</a></li>
+                    <li>Amazon Part</li>
                 </ol>
             </div>
         </div>
@@ -104,10 +190,11 @@
             <div class="text">
                 <h2>Conclusion</h2>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam odio tempora error doloribus aspernatur
-                    voluptate.
+                    This was a very fun project! I felt so comfortable tinkering with new parts
+                    and I wasn't afraid of messing things up. It's still so cool that I'm
+                    taking random parts to create an experience.
                 </p>
-                <p>On To ...</p>
+                <p>On To Project 3: Art Meets Engineering</p>
                 <a href="../IGME470 Pages/IGME470.html" class="back">← Back to 470 Home Page</a>
             </div>
         </div>
