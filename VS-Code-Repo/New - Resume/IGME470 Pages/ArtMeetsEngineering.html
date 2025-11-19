@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 3</title>
+    <link rel="stylesheet" href="../css/blogStyles.css">
+</head>
+
+<body>
+    <header>
+        <h1>Project 3: Art Meets Engineering</h1>
+        <p class="date">11/30/25</p>
+    </header>
+
+    <div class="container">
+        <!-- INTRO SECTION -->
+        <div class="blog-post">
+            <div class="text">
+                <h2>Birthday or Death Day?</h2>
+                <p>
+                    Yello, Hello! Today, I'm going to be working on Project 3: Art Meets Engineering.
+                    In this project, I was assigned to make something that combines the artistry and
+                    creativity with the Arduino. For example, one could make an etch-a-sketch
+                    using a potentiometer and the Processing software as a canvas. However,
+                    I decided to go more <i>experimental</i> with it. When thinking up an idea
+                    for this project, I wanted to make something that had an underlying meaning
+                    to it. Like there's something more that meets the eye. So I came up with
+                    <i>Birthday</i>. I have this running "joke" whenever it's someone's birthday
+                    where I congratulate them on being one year closer to their death. And so
+                    sparked my idea for Project 3, a morbid, dark humor-esque game where you
+                    have to blow on a candle, increasing in age, but there is a timer
+                    that continuously ticks down. If the timer goes to 0, you're dead.
+                </p>
+                <p>
+                    The parts I use are very simple: an LED to detect whenever a candle has been "blown",
+                    3 jumper wires connected to power, the anode of the LED, the cathode of the LED to
+                    digital Pin 5, 220 ohm resistor, and tin foil and paper to
+                    make a paper candle and extend the contact range with the tin foil.
+                </p>
+            </div>
+            <div class="media">
+                <img src="../images/IGME 470/ArtMeetsEngineering/Birthday.jpg" alt="Birthday image">
+            </div>
+        </div>
+
+        <!-- BODY SECTION -->
+        <div class="blog-post">
+            <div class="text">
+                <h2>Body</h2>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique, unde enim eveniet aliquid
+                    veniam quam.
+                </p>
+            </div>
+            <div class="media">
+                <img src="" alt="???">
+                <img src="" alt="???">
+            </div>
+        </div>
+
+        <!-- CODE SECTION -->
+        <div class="blog-post">
+            <div class="text">
+                <h2>Arduino Code</h2>
+                <p>
+                    The process was very similar to Project 2. I really enjoyed being able to serial communicate
+                    with other programs, so I wanted to do that again. As a GDD major, gamifying concepts
+                    is just what I like to do.
+                </p>
+                <p>
+                    The code for the Arduino is very short. The LED that has a cable connected to the cathode
+                    which connects to digital Pin 5 on the UNO. The way this works is that there is a
+                    1 cable connected to power and another connected the anode of the LED. When the
+                    2 cables connect, the LED lights up and the resistor that connects to ground
+                    makes a viable circuit. The 3rd cable connects to the LED's cathode, which
+                    allows me to be able to detect when the connection has been made and
+                    from there I can use the data to my advantage.
+                </p>
+                <p>
+                    blowState reads in the data collected from the LED and if the LED has been
+                    turned on and if the previousBlowState was off, then it will print out
+                    the word BLOW to the serial console.
+                </p>
+            </div>
+            <div class="media">
+                <img src="../images/IGME 470/ArtMeetsEngineering/ArtMeetsEngineering Code.PNG" alt="Arduino code">
+            </div>
+        </div>
+
+        <!-- CODE SECTION -->
+        <div class="blog-post">
+            <div class="text">
+                <h2>Unity Code</h2>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam ab libero recusandae quo, qui quia.
+                </p>
+            </div>
+            <div class="media">
+                <img src="../images/IGME 470/ArtMeetsEngineering/ArtMeetsEngineeringUnity Code.PNG" alt="Unity code">
+            </div>
+        </div>
+
+        <!-- TINKERCAD SECTION -->
+        <div class="blog-post">
+            <div class="text">
+                <h2>Tinkercad</h2>
+            </div>
+            <div class="media-row">
+                <img src="" alt="???">
+                <img src="" alt="???">
+            </div>
+        </div>
+
+        <!-- REFERENCE SECTION -->
+        <div class="blog-post">
+            <div class="text">
+                <h2>References</h2>
+                <ol style="font-size: 20px;">
+                    <li></li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- Post Mortum SECTION -->
+        <div class="blog-post">
+            <div class="text">
+                <h2>Post Mortum</h2>
+            </div>
+            <div class="media-row">
+                <iframe width="800" height="450" src=""></iframe>
+            </div>
+        </div>
+
+        <!-- CONCLUSION SECTION -->
+        <div class="blog-post">
+            <div class="text">
+                <h2>Conclusion</h2>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam odio tempora error doloribus aspernatur
+                    voluptate.
+                </p>
+                <p>On To ...</p>
+                <a href="../IGME470 Pages/IGME470.html" class="back">← Back to 470 Home Page</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
