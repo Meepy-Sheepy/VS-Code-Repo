@@ -48,19 +48,36 @@
         <!-- BODY SECTION -->
         <div class="blog-post">
             <div class="text">
-                <h2>Body</h2>
+                <h2>Life Is Like A Candle, It Isn't Forever</h2>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique, unde enim eveniet aliquid
-                    veniam quam.
+                    The process of Project 3 was a little weird at first. I kept overthinking how I was
+                    going to make the circuit but when I went to Nick, my professor, he cleared everthing
+                    up. I knew that I knew how to do this project, but it was so weird to me
+                    because this was not the traditional circuit I was used to making. Nick
+                    suggested to look at Project 2: Spaceship Interface to see how to
+                    be able to detect if the candle connection was valid. From there,
+                    it was not difficult as the other parts I was very familiar with.
+                </p>
+                <p>
+                    Because the circuitry was not too difficult, I wanted to spruce up the
+                    interface players would be interacting with. I used Unity once
+                    again to make this the way I wanted to. Players need to know 2 things:
+                    how much time they have left, and what age they are. So I put those
+                    on the screen at all times. However, the <i>feeling</i> wasn't there.
+                    It didn't feel like a birthday party so I added balloons and candles
+                    to have that sort of "happy" feeling. Now that we have those components
+                    in place, having the "Death" timer surrounded by a bunch balloons
+                    and celebratory decorations, the dichotomous feelings are now established.
                 </p>
             </div>
             <div class="media">
-                <img src="" alt="???">
-                <img src="" alt="???">
+                <img src="../images/IGME 470/ArtMeetsEngineering/Final Result.jpg"
+                    alt="ArtMeetsEngineering final result">
+                <img src="../videos/IGME 470/ArtMeetsEngineering/Finished.gif" alt="ArtMeetsEngineering showcase">
             </div>
         </div>
 
-        <!-- CODE SECTION -->
+        <!-- ARDUINO CODE SECTION -->
         <div class="blog-post">
             <div class="text">
                 <h2>Arduino Code</h2>
@@ -81,7 +98,11 @@
                 <p>
                     blowState reads in the data collected from the LED and if the LED has been
                     turned on and if the previousBlowState was off, then it will print out
-                    the word BLOW to the serial console.
+                    the word BLOW to the serial console once. I want it to be once because
+                    for my project, the age of the player goes up by one. If it wasn't
+                    there, then it would print multiple BLOWs to the console, therefore,
+                    increasing the age by a lot more than 1. Even then, 2 to 3
+                    BLOWs still print, so the delay(100) guarantees only 1 BLOW.
                 </p>
             </div>
             <div class="media">
@@ -89,12 +110,30 @@
             </div>
         </div>
 
-        <!-- CODE SECTION -->
+        <!-- UNITY CODE SECTION -->
         <div class="blog-post">
             <div class="text">
                 <h2>Unity Code</h2>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam ab libero recusandae quo, qui quia.
+                    This code is also similar to Project 2. There are 3 main variables to keep track of:
+                </p>
+                <ol style="font-size: 20px;">
+                    <li>age - The age of the player.</li>
+                    <li>deathTimer - The timer that leads to the player's inevitable death.</li>
+                    <li>isTimerRunning - Boolean to track timer</li>
+                </ol>
+                <p>
+                    The first chunk of code just detects if it reads in the string "BLOW", and if it does, increase
+                    the age of the player and deathTimer by 1. Why increase the deathTimer you might ask?
+                    Well, to make the game more playable obviously! It's not necessarily fun if no matter what you
+                    do, you die (even though that is the case IRL). It makes it more challenging and players will want
+                    to see how far they can go without dying.
+                </p>
+                <p>
+                    The next chunk is keeping track of the timer and updating the text on screen. While the deathTimer
+                    is greater than 0, just keep decrementing it by the time, if it does cross over to the negatives,
+                    then just return false on the isTimerRunning boolean (which stops the timer), and keep the
+                    timer at 0. When the isTimerRunning is false, change the text to the "game over" text.
                 </p>
             </div>
             <div class="media">
@@ -102,14 +141,27 @@
             </div>
         </div>
 
-        <!-- TINKERCAD SECTION -->
+        <!-- TINKERCAD I SECTION -->
         <div class="blog-post">
             <div class="text">
-                <h2>Tinkercad</h2>
+                <h2>Tinkercad I</h2>
             </div>
-            <div class="media-row">
-                <img src="" alt="???">
-                <img src="" alt="???">
+            <div class="media-row" style=" flex: 80%; justify-content: flex-end;">
+                <img src="../images/IGME 470/ArtMeetsEngineering/Schematic.PNG"
+                    alt="Visual schematic of ArtMeetsEngineering">
+            </div>
+            <p><i>Note: Add 2 wires: 1 on power and one on the anode of the LED</i></p>
+        </div>
+
+        <!-- TINKERCAD II SECTION -->
+        <div class="blog-post">
+            <div class="text">
+                <h2>Tinkercad II</h2>
+            </div>
+            <div class="media-row" style="justify-content: flex-end;">
+                <img src="../images/IGME 470/ArtMeetsEngineering/CSV.PNG" alt="ArtMeetsEngineering CSV">
+                <img src="../images/IGME 470/ArtMeetsEngineering/Schematic View.PNG"
+                    alt="ArtMeetsEngineering schematic">
             </div>
         </div>
 
@@ -118,7 +170,7 @@
             <div class="text">
                 <h2>References</h2>
                 <ol style="font-size: 20px;">
-                    <li></li>
+                    <li>Arduino Starter Kit Chapter 2: Spaceship Interface</li>
                 </ol>
             </div>
         </div>
