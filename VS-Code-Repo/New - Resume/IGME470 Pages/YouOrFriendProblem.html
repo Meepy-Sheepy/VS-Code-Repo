@@ -10,7 +10,7 @@
 
 <body>
     <header>
-        <h1>Project 4: You Or A Friend's Problem</h1>
+        <h1>Project 4: You or a Friend's Problem</h1>
         <p class="date">12/16/25</p>
     </header>
 
@@ -18,9 +18,9 @@
         <!-- INTRO SECTION -->
         <div class="blog-post">
             <div class="text">
-                <h2>Intro</h2>
+                <h2>Finality</h2>
                 <p>
-                    Wow. The final project. Project 4: You Or A Friend's Problem. This has been quite
+                    Wow. The final project. Project 4: You or a Friend's Problem. This has been quite
                     the journey in the introductions to physical computing and I have to say,
                     I did not expect to like it as much as I did. I was nervous, didn't
                     know the workload behind it, and I didn't know if I was going to be able to
@@ -54,7 +54,7 @@
                     </li>
                     <li>Better visuals and feedback in Unity. Confetti when you get the correct lock number.</li>
                     <li>Button to reset the game.</li>
-                    <li>Last minute addition: Sound effects of unlock curated by <i>yours truly</i></li>
+                    <li>Last minute addition: Sound effects of unlock curated by <i>yours truly</i>.</li>
                 </ol>
 
                 <p>
@@ -70,10 +70,21 @@
         <!-- BODY SECTION -->
         <div class="blog-post">
             <div class="text">
-                <h2>Body</h2>
+                <h2>Last Contruction</h2>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique, unde enim eveniet aliquid
-                    veniam quam.
+                    The first thing I wanted to tackle was getting the piezo in there. It had been a while since I
+                    used the piezo but thankfully, I had the starter book to remind me of how to use it properly.
+                    I find that this book is something that I keep coming back to and it's amazingly designed.
+                </p>
+                <p>
+                    In addition to the piezo, I needed something to be able to restart the game. I immediatly thought
+                    of just having the player press "R" on the keyboard, but then I realized, I could use a switch
+                    to get the same result but <i>cooler</i>. The switch was easy to install, nothing fancy going on
+                    there.
+                </p>
+                <p>
+                    That's pretty much all the physical changes to the project. The biggest stuff revolves around
+                    Unity and code so let's move on.
                 </p>
             </div>
             <div class="media">
@@ -82,27 +93,131 @@
             </div>
         </div>
 
-        <!-- CODE SECTION -->
+        <!-- ARDUINO CODE SECTION -->
         <div class="blog-post">
             <div class="text">
-                <h2>Code</h2>
+                <h2>It's Criminal Time (Arduino)</h2>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam ab libero recusandae quo, qui quia.
+                    For the Arduino code, I needed to update the code for the new parts to actually work. I started
+                    on the piezo first since that was the most important one to do. I reviewed the book again to
+                    see how I can get the piezo to make sound and there's 2 functions I need: tone() and noTone().
+                    tone() takes in a pin number and a frequency to emit and noTone() only takes in a pin number
+                    to turn off the emitted sound. From here, I needed to find where the piezo would click
+                    every time I rotated the rotary encoder. On line 80 is where I activate the piezo using
+                    tone(9, notes[0]). 9 is the pin number and I held a list of frequencies and used the first
+                    one in the list. The frequency is 50, meaning it emits a lower, deeper sound. All this code
+                    is in an if statement detecting if the rotary encoder has been rotated so if I'm not rotating it,
+                    I want to turn off the piezo, otherwise the piezo would just be on all the time, so adding
+                    noTone(9) on line 83 prevents that.
                 </p>
+                <p>
+                    This next set of code is taking information from Unity and reading it out to the Arduino.
+                    It is generally the same from Project 2, but now, when the player lands on the correct
+                    angle, it turns on the LED, and also changes the tone the piezo emits. I'm going to keep
+                    the LED in there just so players can have a audio and visual cue for the sake of
+                    being able to enjoy the game. The else if (data == '2') statement comes from when
+                    the player presses the switch to restart the game, it resets the angle and counter.
+                </p>
+
             </div>
             <div class="media">
-                <img src="" alt="???">
+                <img src="../images/IGME 470/YouOrFriendProblem/YOFP Arduino Code1.PNG" alt="YOFP Arduino Code 1">
+                <img src="../images/IGME 470/YouOrFriendProblem/YOFP Arduino Code2.PNG" alt="YOFP Arduino Code 2">
+            </div>
+        </div>
+
+        <!-- UNITY CODE SECTION -->
+        <div class="blog-post">
+            <div class="text">
+                <h2>It's Criminal Time (Unity)</h2>
+                <p>
+                    The Unity coding process was similar to when I was making Project 2.
+                    The code to the right first shows if the recievedString starts with "RESET";
+                    this is being done by the switch. In the Arduino code, when you press the
+                    button down, it will print out "RESET", and what happens in Unity,
+                    is that the entire game resets. The score, angle is set to 0,
+                    there is a new targetAngle, the timer is reset, and it writes to the serial
+                    console '2', which allows the Arudino to reset its own counter and angle.
+                    Now you might be wondering why I reset the angle both in Unity and the Arduino.
+                    It's for 2 reasons:
+                </p>
+
+                <ol style="font-size: 20px;">
+                    <li>It helps prevent any mismatched values if they were to happen.</li>
+                    <li>And more importantly, when I was testing things out, I discovered that
+                        if I wasn't playing the game and I rotated the encoder, the counter
+                        would go up and if I started playing, my lock with a single click would jump
+                        to a "random" location. I was under the impression, the counter/angle were
+                        one in the same in both Unity and the Arduino, that's not the case.
+                    </li>
+                </ol>
+
+                <p>
+                    The next chunk of code is for the countdown timer I installed. It's basically
+                    continously detecting if the currentTime is less than the gameOverTime, aka 0,
+                    and if it is, we disable the lock rotating. This is so it feels like a game
+                    over screen. It'd be kind of weird if the game said "Game Over!" and in the
+                    background, you were able to still play.
+                </p>
+
+                <p>
+                    There's some new things to know about when the player is on the correct number.
+                    I made it so the lock turns green so players don't have to continously look at the
+                    LED light. Previously, you only depended on the LED for the correct number,
+                    but now the lock turns green, the LED turns on, and there is a different
+                    frequency the piezo plays. Overall, there is a lot more player feedback.
+                    I wrestled with the idea of removing the LED because of the green lock
+                    mechanic, but I decided against it for player preference on what they want
+                    to look at and because I like lights. Then when you unlock the lock,
+                    your current timer increases, so there's an incentive to keep going
+                    to try and see how long you can last, the lock color resets to white
+                    since the target angle has changed, and my 2 favorite things,
+                    confetti shoots out from the corners of the screen and 1 of 4
+                    randomized sound bites of me congratulating you plays. It's in
+                    another script called AudioManager and there's a custom function that
+                    chooses a random index from a list.
+                </p>
+
+                <p>
+                    In the next picture shows the bool function I made called outOfTime. It
+                    compares if a is less than b. At the top of the picture, that if statement
+                    sees if the player is out of time, and turns on/off the gameOverText and
+                    and either lets the timer run or not. The LateUpdate function is a little
+                    strange to be using, but what's happening here is when I try to assign
+                    the text to the timer, it kind of "lags" the rotation,
+                    I'm not sure how to describe it but it gets harder to rotate the lock
+                    and jitters more often if the timerText is in Update.
+                    This game is more fragile than I expected, but putting this in LateUpdate fixed my issue.
+                </p>
+
+            </div>
+            <div class="media">
+                <img src="../images/IGME 470/YouOrFriendProblem/YOFP Unity Code1.PNG" alt="YOFP Unity Code 1">
+                <img src="../images/IGME 470/YouOrFriendProblem/YOFP Unity Code2.PNG" alt="YOFP Unity Code 2">
             </div>
         </div>
 
         <!-- TINKERCAD SECTION -->
         <div class="blog-post">
             <div class="text">
-                <h2>Tinkercad</h2>
+                <h2>Tinkercad I</h2>
             </div>
             <div class="media-row">
-                <img src="" alt="???">
-                <img src="" alt="???">
+                <img src="../images/IGME 470/YouOrFriendProblem/Schematic.PNG" alt="YOFP visual schematic">
+                <img src="../images/IGME 470/AlternativeController/Rotary Encoder Schematic.png"
+                    alt="Rotary Encoder schematic view">
+            </div>
+            <p><i>Note: Replace the potentiometer with a rotary encoder.</i></p>
+        </div>
+
+        <!-- TINKERCAD SECTION -->
+        <div class="blog-post">
+            <div class="text">
+                <h2>Tinkercad II</h2>
+            </div>
+            <div class="media-row">
+                <img src="../images/IGME 470/YouOrFriendProblem/Schematic View.PNG" alt="YOFP schematic view">
+                <img src="../images/IGME 470/YouOrFriendProblem/CSV.PNG" alt="YOFP CSV">
             </div>
         </div>
 
@@ -111,7 +226,10 @@
             <div class="text">
                 <h2>References</h2>
                 <ol style="font-size: 20px;">
-                    <li></li>
+                    <li><a href="https://arduinogetstarted.com/tutorials/arduino-rotary-encoder">Rotary Encoder
+                            ArduinoGetStarted</a></li>
+                    <li><a href="https://a.co/d/gT4SrAa">Rotary Encoder
+                            Amazon</a></li>
                 </ol>
             </div>
         </div>
@@ -131,10 +249,8 @@
             <div class="text">
                 <h2>Conclusion</h2>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam odio tempora error doloribus aspernatur
-                    voluptate.
+                    All things come to an end. It's been a nice ride. Thank you Nick, for this class!
                 </p>
-                <p>On To ...</p>
                 <a href="../IGME470 Pages/IGME470.html" class="back">← Back to 470 Home Page</a>
             </div>
         </div>
