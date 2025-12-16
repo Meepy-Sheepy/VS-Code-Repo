@@ -102,9 +102,10 @@
                     on the piezo first since that was the most important one to do. I reviewed the book again to
                     see how I can get the piezo to make sound and there's 2 functions I need: tone() and noTone().
                     tone() takes in a pin number and a frequency to emit and noTone() only takes in a pin number
-                    to turn off the emitted sound. From here, I needed to find where the piezo would click
-                    every time I rotated the rotary encoder. On line 80 is where I activate the piezo using
-                    tone(9, notes[0]). 9 is the pin number and I held a list of frequencies and used the first
+                    to turn off the emitted sound. From here, I needed to find where to put the code that would
+                    make the piezo click every time I rotated the rotary encoder.
+                    On line 80 is where I activate the piezo using tone(9, notes[0]). 9 is the
+                    pin number and I held a list of frequencies and used the first
                     one in the list. The frequency is 50, meaning it emits a lower, deeper sound. All this code
                     is in an if statement detecting if the rotary encoder has been rotated so if I'm not rotating it,
                     I want to turn off the piezo, otherwise the piezo would just be on all the time, so adding
@@ -114,7 +115,7 @@
                     This next set of code is taking information from Unity and reading it out to the Arduino.
                     It is generally the same from Project 2, but now, when the player lands on the correct
                     angle, it turns on the LED, and also changes the tone the piezo emits. I'm going to keep
-                    the LED in there just so players can have a audio and visual cue for the sake of
+                    the LED in there just so players can have an audio and visual cue for the sake of
                     being able to enjoy the game. The else if (data == '2') statement comes from when
                     the player presses the switch to restart the game, it resets the angle and counter.
                 </p>
@@ -132,8 +133,8 @@
                 <h2>It's Criminal Time (Unity)</h2>
                 <p>
                     The Unity coding process was similar to when I was making Project 2.
-                    The code to the right first shows if the recievedString starts with "RESET";
-                    this is being done by the switch. In the Arduino code, when you press the
+                    The code on the right first shows if the recievedString starts with "RESET";
+                    this is being printed by the switch. In the Arduino code, when you press the
                     button down, it will print out "RESET", and what happens in Unity,
                     is that the entire game resets. The score, angle is set to 0,
                     there is a new targetAngle, the timer is reset, and it writes to the serial
@@ -147,7 +148,7 @@
                     <li>And more importantly, when I was testing things out, I discovered that
                         if I wasn't playing the game and I rotated the encoder, the counter
                         would go up and if I started playing, my lock with a single click would jump
-                        to a "random" location. I was under the impression, the counter/angle were
+                        to a "random" location. I was under the impression the counter/angle were
                         one in the same in both Unity and the Arduino, that's not the case.
                     </li>
                 </ol>
@@ -168,21 +169,21 @@
                     frequency the piezo plays. Overall, there is a lot more player feedback.
                     I wrestled with the idea of removing the LED because of the green lock
                     mechanic, but I decided against it for player preference on what they want
-                    to look at and because I like lights. Then when you unlock the lock,
+                    to look at and because I like lights. Then, when you unlock the lock,
                     your current timer increases, so there's an incentive to keep going
                     to try and see how long you can last, the lock color resets to white
                     since the target angle has changed, and my 2 favorite things,
                     confetti shoots out from the corners of the screen and 1 of 4
                     randomized sound bites of me congratulating you plays. It's in
                     another script called AudioManager and there's a custom function that
-                    chooses a random index from a list.
+                    chooses a random index from a list (PlayWinSFX()).
                 </p>
 
                 <p>
                     In the next picture shows the bool function I made called outOfTime. It
                     compares if a is less than b. At the top of the picture, that if statement
-                    sees if the player is out of time, and turns on/off the gameOverText and
-                    and either lets the timer run or not. The LateUpdate function is a little
+                    sees if the player is out of time and turns on/off the gameOverText and
+                    either lets the timer run or not. The LateUpdate function is a little
                     strange to be using, but what's happening here is when I try to assign
                     the text to the timer, it kind of "lags" the rotation,
                     I'm not sure how to describe it but it gets harder to rotate the lock
