@@ -1,10 +1,11 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Roboto Flex", sans-serif;
+    font-weight: 200;
     margin: 0;
-    background: #f0f0f0;
+    background: white;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    /* align-items: center; */
     padding: 20px 0;
 }
 
@@ -13,25 +14,48 @@ body {
     /* take almost full width */
     display: flex;
     flex-direction: column;
+    align-self:  center;
     gap: 20px;
 }
 
 .box {
-    background: white;
+    background: #c55001;
     border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, .4);
     display: flex;
     justify-content: center;
     align-items: center;
     height: 120px;
     text-decoration: none;
-    color: black;
-    font-size: 20px;
-    font-weight: bold;
+    color: white;
+    font-size: 24px;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.back {
+    margin: 20px;
+    background: #225f72;
+    border-radius: 12px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, .4);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    width: 180px;
+    text-decoration: none;
+    color: white;
+    font-size: 22px;
+    transition: color 0.2s ease, background-color 0.2s ease;
 }
 
 .box:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
+
+.back:hover {
+    color: black;
+    background-color: rgb(160, 153, 153);
+}
+

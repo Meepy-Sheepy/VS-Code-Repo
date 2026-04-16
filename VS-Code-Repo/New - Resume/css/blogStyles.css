@@ -1,5 +1,5 @@
 body {
-    font-family: Georgia, serif;
+    font-family: "Roboto Flex", sans-serif;
     line-height: 1.6;
     margin: 0;
     background: #f9f9f9;
@@ -7,7 +7,7 @@ body {
 }
 
 header {
-    background: #222;
+    background: #c55001;
     color: white;
     padding: 20px;
     text-align: center;
@@ -21,7 +21,7 @@ header h1 {
 header .date {
     margin: 5px 0 0 0;
     font-size: 16px;
-    color: #ccc;
+    color: rgb(255, 255, 255);
 }
 
 .container {
@@ -56,11 +56,11 @@ header .date {
     color: #222;
 }
 
-.date {
+/* .date {
     font-size: 15px;
     color: #666;
     margin-bottom: 20px;
-}
+} */
 
 .text p {
     margin-bottom: 20px;
@@ -89,13 +89,15 @@ header .date {
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
-
 .media img,
 .media video,
 .media iframe {
     width: 100%;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    outline-style: solid;
+    outline-color: #e7c710;
+    outline-width: 4px;
 }
 
 footer {
@@ -107,14 +109,23 @@ footer {
     color: #555;
 }
 
-a.back {
-    display: inline-block;
-    margin-top: 20px;
+.back {
+    background: #225f72;
+    border-radius: 12px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, .4);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    width: 250px;
     text-decoration: none;
-    color: #0077cc;
-    font-weight: bold;
+    color: white;
+    font-size: 18px;
+    transition: color 0.2s ease, background-color 0.2s ease;
 }
 
-a.back:hover {
-    text-decoration: underline;
+.back:hover {
+    color: black;
+    background-color: rgb(160, 153, 153);
 }
